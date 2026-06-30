@@ -1,0 +1,167 @@
+/* OpenTeams maintenance page.
+   Palette & type sourced from the OpenTeams design system (ot-foundations.css):
+   blue #4D75FE · navy #022791 · coral #FF8A69 · amber #FAA944, on white. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --ot-navy-900: #000f3a;
+  --ot-navy-800: #022791;
+  --ot-blue-600: #3b5dd9;
+  --ot-blue-500: #4d75fe;
+  --ot-coral-500: #ff8a69;
+  --ot-amber-500: #faa944;
+
+  --ot-white: #ffffff;
+  --ot-cloud: #f7f7f7;
+  --ot-lavender-50: #f5f8ff;
+  --ot-ink-900: #262626;
+  --ot-ink-700: #3f3f3f;
+  --ot-ink-500: #636363;
+
+  --ot-border: rgba(2, 39, 145, 0.1);
+  --ot-shadow-card: 0 8px 24px rgba(2, 39, 145, 0.08);
+
+  --ot-font-display: 'Inter Tight', system-ui, -apple-system, sans-serif;
+  --ot-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --ot-radius-2xl: 28px;
+  --ot-radius-pill: 999px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2.5rem 1.25rem;
+  font-family: var(--ot-font-body);
+  color: var(--ot-ink-900);
+  background:
+    radial-gradient(ellipse 80% 70% at 18% 8%, rgba(77, 117, 254, 0.1), transparent 55%),
+    radial-gradient(ellipse 70% 60% at 92% 100%, rgba(255, 138, 105, 0.1), transparent 55%),
+    linear-gradient(180deg, var(--ot-lavender-50), var(--ot-white));
+}
+
+.card {
+  width: 100%;
+  max-width: 600px;
+  background: var(--ot-white);
+  border: 1px solid var(--ot-border);
+  border-radius: var(--ot-radius-2xl);
+  box-shadow: var(--ot-shadow-card);
+  padding: 3.5rem 3rem;
+  text-align: center;
+}
+
+.logo {
+  width: 320px;
+  max-width: 78%;
+  height: auto;
+  margin-bottom: 2.25rem;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ot-navy-800);
+  background: rgba(77, 117, 254, 0.1);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--ot-radius-pill);
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ot-amber-500);
+  box-shadow: 0 0 0 0 rgba(250, 169, 68, 0.6);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(250, 169, 68, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(250, 169, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(250, 169, 68, 0);
+  }
+}
+
+h1 {
+  margin: 1.25rem 0 0.85rem;
+  font-family: var(--ot-font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ot-navy-800);
+}
+
+.lead {
+  margin: 0 auto;
+  max-width: 44ch;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--ot-ink-700);
+}
+
+.contact {
+  margin-top: 1.85rem;
+  font-size: 0.95rem;
+  color: var(--ot-ink-500);
+}
+
+a {
+  color: var(--ot-blue-500);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--ot-blue-600);
+  text-decoration: underline;
+}
+
+.footer {
+  font-size: 0.8rem;
+  color: var(--ot-ink-500);
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.65rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+  }
+}

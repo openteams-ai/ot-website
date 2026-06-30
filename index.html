@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenTeams — Under Maintenance</title>
+  <meta name="description" content="OpenTeams is temporarily down for scheduled maintenance. We'll be back shortly." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="card" role="main">
+    <img class="logo" src="assets/openteams-horizontal.png" alt="OpenTeams" width="320" />
+
+    <div class="status" aria-hidden="true">
+      <span class="dot"></span>
+      Maintenance in progress
+    </div>
+
+    <h1>We&rsquo;ll be right back.</h1>
+    <p class="lead">
+      OpenTeams is temporarily down for maintenance. We&rsquo;re making
+      improvements and expect to be back online shortly. Thanks for your patience.
+    </p>
+
+    <p class="contact">
+      Need to reach us? Email
+      <a href="mailto:info@openteams.com">info@openteams.com</a>.
+    </p>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year">2026</span> OpenTeams. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
