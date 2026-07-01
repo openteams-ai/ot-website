@@ -1,0 +1,97 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost
+  title="Open Source Looks Risky. That’s Why It Works"
+  description="Heartbleed scared the world—but it proved open source is safer than closed source. Discover why transparency is the real foundation of software security."
+  date="2025-06-27"
+  eyebrow="Case Study"
+  backHref="/case-studies/"
+  backLabel="All case studies"
+>
+  <p>In March 2014, a 25-year-old Google engineer was spelunking through the code that kept the internet’s secrets safe. His name was Neel Mehta. The codebase? OpenSSL—the open-source encryption library duct-taped across half the web. Passwords, medical records, nuclear power plant schematics—if it needed locking up, OpenSSL probably helped do it.</p>
+  <p>And there it was: a bug. Plain as day to anyone who knew how to read C. A missing bounds check. Two lines. Blink and you’d miss it.</p>
+  <p>He sent a private email with a fix. No press release, no “stop the internet” headline.</p>
+  <p>It would go on to earn a name: <strong>Heartbleed</strong>. And shortly set off a global panic.</p>
+  <p>Banks scrambled. Healthcare systems held their breath. News anchors learned the word “OpenSSL”.</p>
+  <p>The panic arose from a deep misconception: open source left us vulnerable.</p>
+  <p>They couldn’t have been more wrong.</p>
+
+  <h2>Closed Source Is the Illusion of Security</h2>
+  <p>Most of us think of software like a bank vault. You keep your valuables inside, turn the dial, hear the satisfying click, and hand the vault to your “trusted friend”—closed source.</p>
+  <p>Your friend promises to keep it in a dark closet, far from prying eyes. Surely, by hiding the vault, it is also safer. Right?</p>
+  <p>Mehta, the hero of this story, proves that assumption dead wrong.</p>
+  <p>In his case, the “vault” was public. And the side had rusted. It had been sitting in plain sight for two years.</p>
+  <p>Because it was out in the open, Mehta saw the rust—and raised the alarm.</p>
+  <p>Had that “vault” been closed source, the rust would have remained hidden in the dark. It wouldn’t have been safer. It would have been at greater risk.</p>
+
+  <h3>The Heartbleed Paradox</h3>
+  <p>That rust discovery on the internet’s vault is known as Heartbleed. And those scared bankers understood the wrong lesson.</p>
+  <p>The flaw was there in the code. Always had been.</p>
+  <p>If it wasn’t out in the open for anyone to see, no one would have discovered it.</p>
+  <p>When Mehta found the bug, he could remedy it immediately. He didn’t need to file a corporate request, wait six weeks, or sign an NDA. The world needed better security now. And thanks to open source, Mehta didn’t need permission. The code was there. So he fixed it.</p>
+  <p>Had the same flaw lived in a closed source library—owned by some vendor, hidden behind proprietary walls—no one would have caught it. It wouldn’t have been fixed. No one would even know it existed.</p>
+  <p>That’s the paradox.</p>
+  <p>Open source looks risky because you can see the flaws. Everyone can see the rust on the vault. But that visibility is what makes it safer.</p>
+
+  <h3>Overcoming the Culture of Secrets</h3>
+  <p>Not only is the truth counterintuitive, we’re also confronting a culture of secrecy.</p>
+  <p>In the early days of encryption, secrecy was everything. The Ceasar cipher, an early Enigma machine, relied on hiding how the system worked. But, as reality demanded the cipher scale, the model failed.</p>
+  <p>Claude Shannon, a cryptographer at Bell Labs during WWII, introduced a radical idea: security should only depend on the code to the vault—not the secrecy of the system.</p>
+  <p>It was a radical idea at first. Counterintuitive. But it is the only thing that makes sense. If a bank robber can’t understand the vault, great. But what if they can?</p>
+  <p>Better to assume they can—and make your system strong anyway.</p>
+  <p>Today, that’s that standard in cryptography. The algorithms you already trust—RSA, AES—are public. Their source code is open. Their strength comes from testing, not hiding.</p>
+  <p>The same principle—the one that now defines modern cryptography—applies to the software we build today.</p>
+
+  <h3>Your Vendor Vanishes. Now What?</h3>
+  <p>Let’s go back to that vault.</p>
+  <p>You hand it to a trusted vendor, tell them to keep it safe. You sleep better at night knowing it’s out of sight. But one day, you go to check on it. You knock. No answer.</p>
+  <p>You knock again. Still nothing.</p>
+  <p>The vendor’s gone. Moved. Vanished without a trace.</p>
+  <p>So you read the fine print. And that’s when you realize: the vault wasn’t just stored with them. It was theirs. You signed it away. Along with everything inside.</p>
+  <p>This isn’t a metaphor anymore.</p>
+  <p>It’s already happening.</p>
+  <p>One morning, engineers at a mid-sized energy firm in the Midwest logged into their AI dashboard. The one they depended on to manage critical infrastructure.</p>
+  <p>Nothing loaded.</p>
+  <p>No error message. No explanation. Just blank.</p>
+  <p>Over the weekend, the vendor behind the platform—a small AI startup—had been acquired. The new owner deprecated the service. No notice. No migration path. No apology.</p>
+  <p>The vault was gone.</p>
+  <p>That’s what happens when software is locked away.</p>
+  <p>You don’t own it. You rent it.</p>
+  <p>And when the vendor disappears, so does your infrastructure.</p>
+
+  <h3>Beat the False Sense of Control</h3>
+  <p>Closed source software sells you a promise: We know best. We’ll keep you safe.</p>
+  <p>But that safety is a lie. Bugs don’t care who can see the code. They exist either way.</p>
+  <p>The question isn’t whether hiding flaws is safer. It’s who finds the flaw first: the attacker or the defender.</p>
+  <p>And if the defenders aren’t allowed to look, they don’t stand a chance.</p>
+  <p>Dan Kaminsky, the legendary security researcher, once described it like this: Imagine you’re walking down a dark hallway. There’s a door somewhere ahead. You find the knob. You try it. It opens. Safe, right?</p>
+  <p>Now imagine the hallway is lit. You see the door. You inspect the hinges. You notice a crack.</p>
+  <p>In the dark, the door feels safer. But you’re not actually protected. You’re just blind.</p>
+  <p>That’s closed source.</p>
+
+  <h3>Open Source Is What Works</h3>
+  <p>Open source doesn’t promise perfect.</p>
+  <p>It means inspectable.</p>
+  <p>If something breaks, you can see why. If a vendor disappears, the code doesn’t. You can run it and improve it.</p>
+  <p>That’s what top organizations are already doing.</p>
+  <p>The Pentagon is investing in open tooling for AI infrastructure. Major bands are hiring maintainers of critical open source packages. Even Microsoft (once the sworn enemy of open source) is now one of its biggest corporate contributors.</p>
+  <p>The counterintuitive truth is that the only real safety is transparency.</p>
+
+  <h3>Heartbleed’s Real Lesson</h3>
+  <p>Back to Mehta.</p>
+  <p>When he found Heartbleed, the world panicked. They learned the wrong lesson.</p>
+  <p>Because the code was open, it was fixed. The flaw would have existed with or without the world’s eyes on it. But thanks to Mehta, he stopped the bleeding.</p>
+  <p>Without open source, all of us might still be bleeding.</p>
+
+  <h3>What We Choose to See</h3>
+  <ul>
+    <li>Open source is safer.</li>
+    <li>You can’t fix what you don’t see.</li>
+    <li>Heartbleed is proof of open source’s power.</li>
+  </ul>
+  <p>The vault wasn’t hidden in someone’s closet. That’s why it got fixed.</p>
+  <p>Software controls our energy grids, our hospitals, our elections, and near everything we value and rely on. Now that you know the safest systems are the ones anyone can inspect, how does that change the way you want those systems to work?</p>
+  <p>If you can’t see it, you can’t secure it.</p>
+  <p>That’s why open source is the safest option you have.</p>
+</BlogPost>

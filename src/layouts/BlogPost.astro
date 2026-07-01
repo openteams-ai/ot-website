@@ -7,9 +7,21 @@ interface Props {
   date: string; // ISO YYYY-MM-DD
   author?: string;
   deck?: string;
+  eyebrow?: string;
+  backHref?: string;
+  backLabel?: string;
 }
 
-const { title, description, date, author, deck } = Astro.props;
+const {
+  title,
+  description,
+  date,
+  author,
+  deck,
+  eyebrow = 'Blog',
+  backHref = '/blog/',
+  backLabel = 'All posts',
+} = Astro.props;
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const fmt = (iso: string) => {
@@ -22,8 +34,8 @@ const fmt = (iso: string) => {
   <article class="post">
     <header class="section section--dark post__hero">
       <div class="container post__head">
-        <a href="/blog/" class="post__back">&larr; All posts</a>
-        <p class="eyebrow">Blog</p>
+        <a href={backHref} class="post__back">&larr; {backLabel}</a>
+        <p class="eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
         {deck && <p class="lead">{deck}</p>}
         <p class="post__meta">

@@ -1,0 +1,116 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost
+  title="From a 2% AP Statistics Pass Rate to Jupyter Everywhere in the Classroom"
+  description="How Skew The Script and OpenTeams brought secure, browser-based Jupyter notebooks to underserved K–12 classrooms."
+  date="2026-03-20"
+  deck="How Skew The Script and OpenTeams brought secure, browser-based Jupyter notebooks to underserved K–12 classrooms."
+  eyebrow="Case Study"
+  backHref="/case-studies/"
+  backLabel="All case studies"
+>
+  <h2>Skew The Script</h2>
+  <p>501(c)(3) nonprofit improving data literacy and math outcomes in underserved schools, founded in San Antonio, TX.</p>
+
+  <h2>Project at a Glance</h2>
+  <ul>
+    <li><strong>Engagement Year:</strong> 2025</li>
+    <li><strong>Duration:</strong> ~8 months</li>
+    <li><strong>Scope:</strong> 100+ hours of software development</li>
+    <li><strong>Deliverable:</strong> Jupyter Everywhere, browser-based JupyterLite extension</li>
+  </ul>
+
+  <ul>
+    <li><strong>2% → 42%</strong> — AP Stats pass rate in founding Skew The Script classroom</li>
+    <li><strong>+10 – 11 pts</strong> — Estimated boost in AP Exam pass rates across Texas from Skew The Script (2023)</li>
+    <li><strong>0 accounts</strong> — Required and works on any Chromebook</li>
+  </ul>
+
+  <h2>The Curriculum Worked. The Technology Didn’t.</h2>
+  <p>Nationally, about 60% of students pass the AP Statistics exam each year. However, in the urban core of San Antonio, the pass rate has traditionally hovered around 2%.</p>
+  <p>To tackle the disparity, <a href="https://skewthescript.org/" target="_blank" rel="noopener noreferrer">Skew The Script</a> built a curriculum around questions their students actually cared about: “Do social media creators make a livable wage?” “Does income determine access to healthy food?” In their founding classroom in San Antonio, they saw pass rates jump to 42%. The curriculum spread widely and, in 2023, Harvard researchers <a href="https://skewthescript.org/blog/harvard-ap-stats-research-brief" target="_blank" rel="noopener noreferrer">found evidence</a> that the lessons boosted AP Statistics exam pass rates by 10-11 percentage points in schools across Texas.</p>
+  <p>But students were still leaving unprepared for real data work—coding, notebooks, machine learning—because these topics were beyond the capacity of handheld calculators and beyond the scope of AP Statistics.</p>
+  <p>To better prepare them, classrooms need modern, real-world software that could run on the lightweight computers found in most K-12 schools, like Chromebooks.</p>
+  <p>That’s when they called OpenTeams.</p>
+
+  <blockquote>
+    <p>“Working with OpenTeams was a true pleasure—their support helped bring our vision to life. Everyone on the team was deeply invested in our goals and consistently offered thoughtful technical insight that helped us fully explore the problem space. The team kept the project on track with clear milestones and maintained steady, responsive communication with regards to the project. Together, we built an application that not only reflects what we envisioned but also contributes meaningfully back to the developer community.”</p>
+    <cite>Ivonne Martinez, CTO, Skew The Script</cite>
+  </blockquote>
+
+  <h2>The Challenge</h2>
+  <h3>Four Interlocking Barriers Blocking Every Classroom</h3>
+  <p>Bringing Jupyter notebooks into K–12 classrooms sounds straightforward. In practice, four obstacles had blocked every prior attempt:</p>
+  <ul>
+    <li><strong>Device Constraints:</strong> Most schools use lightweight laptops, like Chromebooks, which prevent local software installation, ruling out the standard Jupyter stack entirely.</li>
+    <li><strong>Data Privacy Restrictions:</strong> Google Colab, the usual browser-based alternative, doesn’t have the student data protections needed for authorization in many K–12 districts.</li>
+    <li><strong>Account &amp; Compliance Burden:</strong> Any tool requiring student accounts trigger complex IT procurement processes and state-specific data-sharing agreements that individual teachers cannot easily navigate. With many users under 18, the compliance risk was a hard stop for most administrators.</li>
+    <li><strong>Infrastructure:</strong> Traditional JupyterHub cloud deployments require storage and maintenance by experienced IT/infra professionals, making them prohibitively costly for school districts to adopt.</li>
+  </ul>
+  <p>No off-the-shelf tool threaded all four needles at once. Skew The Script needed something purpose-built, and they needed a technical partner who could build it to open source standards and deliver it on time.</p>
+
+  <blockquote>
+    <p>“Partnering with OpenTeams allowed us to develop prototypes, solve problems, and tinker/adjust to user needs with incredible speed. Their team not only met our design specifications incredibly well, but they also anticipated problems and implemented solutions before users ever felt any impact. Now, our team can focus on creating content and meeting the needs of users instead of fighting with errors. We’re grateful for their collaboration.”</p>
+    <cite>Dashiell Young-Saver, Founder &amp; CEO, Skew The Script</cite>
+  </blockquote>
+
+  <h2>The OpenTeams Solution</h2>
+  <h3>Building Jupyter Everywhere from the Ground Up</h3>
+  <p>OpenTeams joined as the primary software development partner, working closely with Ivonne Martinez (CTO) and Dashiell Young-Saver (Founder &amp; CEO) from Skew The Script, alongside collaborators from Quansight and CourseKata.</p>
+  <p>OpenTeams technical leadership from Dharhas Pothina (CTO) and senior engineers Peyton Murray and Mike Krassowski (JupyterLab maintainer), plus Quansight’s Agriya Khetarpal (Pyodide and jupyterlite-pyodide-kernel maintainer), drove the architecture and day-to-day execution, with tight weekly coordination to keep the project aligned.</p>
+
+  <h3>Phase 1: Browser-Native File System</h3>
+  <p>The first phase delivered a custom file system within the JupyterLite iframe, allowing students to upload, manage, and persist their notebook files entirely within the browser, no server, no login, no data leaving the device. All computation runs locally in the browser via WebAssembly, and students can use the platform without creating accounts or submitting personal information, helping satisfy even the most stringent K–12 data privacy requirements.</p>
+
+  <h3>Phase 2: View-Only Sharing Links</h3>
+  <p>The second phase tackled classroom collaboration. CourseKata developed a view-only sharing system that lets teachers and students share notebooks instantly via a link, with a one-click “make your own copy” option. OpenTeams integrated the feature into the JupyterLite extension. The architecture stores notebooks on a server without requiring students to create user accounts or provide personally identifiable information, balancing shareability with strict privacy requirements.</p>
+
+  <h2>Designed for the Realities of K–12 Classrooms</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>K–12 Requirement</th>
+        <th>How Jupyter Everywhere Solves It</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Data Privacy</td>
+        <td>All computation runs locally in the browser via WebAssembly. No account required, no student data leaves the device, satisfying even the most stringent K–12 privacy requirements.</td>
+      </tr>
+      <tr>
+        <td>Device Access</td>
+        <td>Fully web-accessible and works on Chromebooks out of the box. No installation, no downloads, no IT procurement cycles.</td>
+      </tr>
+      <tr>
+        <td>Shareability</td>
+        <td>Teachers and students share notebooks instantly via a view-only link, with a one-click option to create a personal, editable copy, without storing any personally identifiable student data on a server.</td>
+      </tr>
+      <tr>
+        <td>Usability</td>
+        <td>Built as a JupyterLite extension with a simplified, minimal interface and plain-language prompts (e.g., “Would you like to restart the notebook’s memory?”) to reduce the barrier for first-time users.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Open Source Contributions</h2>
+  <h3>The Side Effect: A Better Ecosystem for Everyone</h3>
+  <p>OpenTeams’ engineers didn’t just build for Skew The Script, they improved the open source infrastructure the project depended on. Work that began as project-specific problem-solving was contributed back to the community, creating lasting value beyond the engagement.</p>
+  <ul>
+    <li><strong>Extended JupyterLab:</strong> Added new extension points to JupyterLab, enabling richer customization for future developers building educational tools on the platform.</li>
+    <li><strong>Improved Pyodide Kernel Networking Support:</strong> Identified a limitation in the Pyodide kernel affecting interoperability with the Python requests library and other networking tools, and implemented improvements to enable broader compatibility across projects using the kernel runtime.</li>
+    <li><strong>Published a Reference Architecture:</strong> Created a publicly available, well-documented example of how to build custom-remixed Jupyter components for interactive computer education, lowering the barrier for future developers.</li>
+    <li><strong>Improved Kernel Interrupt Support:</strong> Added support for partial kernel interrupts in JupyterLite, improving reliability when stopping or resetting long-running computations in browser-based notebooks.</li>
+  </ul>
+  <p>These contributions reflect OpenTeams’ commitment to open source stewardship: every client engagement is also an opportunity to strengthen the shared infrastructure the entire ecosystem depends on.</p>
+
+  <h2>Results &amp; Impact</h2>
+  <h3>Jupyter Everywhere, Live in Classrooms</h3>
+  <p><a href="https://www.jupytereverywhere.org/" target="_blank" rel="noopener noreferrer">Jupyter Everywhere</a> launched on schedule, giving Skew The Script a production-ready platform to bring data science to classrooms that had never had access to it. The launch enabled a keynote at JupyterCon 2025, where the technical achievements and the equity mission behind this work reached a global developer audience.</p>
+  <p>Watch the <a href="https://www.youtube.com/watch?v=hFe0k1JKQlk" target="_blank" rel="noopener noreferrer">JupyterCon keynote</a>.</p>
+
+  <h2>Partner With OpenTeams</h2>
+  <p>If your organization has a mission that depends on secure, scalable, open source infrastructure, whether in education, government, or enterprise, we can help you remove the technical barriers standing in the way.</p>
+  <p>Let’s build what doesn’t exist yet.</p>
+</BlogPost>
