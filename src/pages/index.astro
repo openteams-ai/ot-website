@@ -113,16 +113,15 @@ const cases = [
 ];
 
 const partners = [
-  'Biotech',
-  'Defense',
-  'Aerospace',
-  'Energy',
-  'Financial Services',
-  'Government',
-  'Investment Management',
-  'Advertising',
-  'Manufacturing',
-  'Healthcare',
+  { name: 'Google', src: '/assets/partners/OpenTeams-clients-12-1.png' },
+  { name: 'Meta', src: '/assets/partners/OpenTeams-clients-11-1.png' },
+  { name: 'DARPA', src: '/assets/partners/OpenTeams-clients-04.png' },
+  { name: 'USGS', src: '/assets/partners/OpenTeams-clients-08.png' },
+  { name: 'ECMWF', src: '/assets/partners/OpenTeams-clients-07.png' },
+  { name: 'NumFOCUS', src: '/assets/partners/OpenTeams-clients-06.png' },
+  { name: 'Project Jupyter', src: '/assets/partners/OpenTeams-clients-05.png' },
+  { name: 'Polars', src: '/assets/partners/OpenTeams-clients-09.png' },
+  { name: 'Broadvail Capital Partners', src: '/assets/partners/OpenTeams-clients-01.png' },
 ];
 ---
 
@@ -146,10 +145,18 @@ const partners = [
   <!-- Trust bar -->
   <section class="section--tight trust section--cloud">
     <p class="muted trust__label center">Trusted by the teams building the future of AI</p>
-    <div class="marquee" aria-hidden="true">
+    <div class="marquee">
       <div class="marquee__track">
-        {[...partners, ...partners].map((n) => (
-          <span class="marquee__item">{n}</span>
+        {[...partners, ...partners].map((p, i) => (
+          <img
+            class="marquee__logo"
+            src={p.src}
+            alt={p.name}
+            width="150"
+            height="93"
+            loading="lazy"
+            aria-hidden={i >= partners.length ? 'true' : undefined}
+          />
         ))}
       </div>
     </div>
@@ -286,19 +293,25 @@ const partners = [
   }
   .marquee__track {
     display: flex;
+    align-items: center;
     width: max-content;
-    animation: ot-marquee 34s linear infinite;
+    animation: ot-marquee 40s linear infinite;
   }
   .marquee:hover .marquee__track { animation-play-state: paused; }
-  .marquee__item {
-    font-family: var(--ot-font-display);
-    font-weight: 600;
-    font-size: 1.15rem;
-    color: var(--ot-ink-400);
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-    margin-right: clamp(2.5rem, 6vw, 4.5rem);
+  .marquee__logo {
+    flex: none;
+    height: clamp(64px, 9vw, 84px);
+    width: auto;
+    object-fit: contain;
+    padding: 0.5rem 1.4rem;
+    margin-right: clamp(1.25rem, 3vw, 2rem);
+    background: #fff;
+    border: 1px solid var(--ot-border);
+    border-radius: var(--ot-radius);
+    opacity: 0.88;
+    transition: opacity 0.2s ease;
   }
+  .marquee:hover .marquee__logo { opacity: 1; }
   @keyframes ot-marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
