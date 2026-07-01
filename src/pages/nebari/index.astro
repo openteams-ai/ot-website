@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const pillars = [
+  {
+    title: 'Own Your Data',
+    body: 'Discover, develop, deploy, and manage AI capabilities for your organization in one place — without your data ever leaving your environment.',
+  },
+  {
+    title: 'Own Your Intelligence',
+    body: 'Never compromise ownership over your infrastructure, your data, or your intelligence. What you build compounds in value for you, not a vendor.',
+  },
+  {
+    title: 'No Vendor Lock-In',
+    body: 'Nebari is open source. The software is free and you fully own it — deploy on your infrastructure, keep your options open, and switch on your terms.',
+  },
+];
+
+const capabilities = [
+  {
+    num: '01',
+    title: 'The Nebari® Catalog',
+    body: "You shouldn't have to guess how your AI thinks. The Catalog gives you full observability into the logic and lineage of every insight, so you can verify outcomes and act with confidence.",
+  },
+  {
+    num: '02',
+    title: 'The Nebari Hub',
+    body: 'Your real-time thought partner. A secure environment where your team can synthesize data and brainstorm in human-AI partnership. Your thoughts and proprietary data never leave your perimeter.',
+  },
+  {
+    num: '03',
+    title: 'The Nebari Ecosystem',
+    body: 'Visualize and manage the assets that make your AI capability possible — a tiered ecosystem approach to software supply chain management.',
+  },
+  {
+    num: '04',
+    title: 'Applied AI Architects',
+    body: 'Technology only works when people adopt it. Nebari connects you to a network of expert architects who provide the training and culture shifts needed to bridge tools and talent.',
+  },
+];
+
+const steps = [
+  {
+    stage: 'Step 01',
+    title: 'Choose Your Infrastructure',
+    body: 'Deploy Nebari on the cloud, on-prem, or in a hybrid setup. Scalable AI infrastructure that runs where you need it, with GUI tools and simple config scripts instead of a dedicated DevOps team.',
+  },
+  {
+    stage: 'Step 02',
+    title: 'Choose Your Privacy Level',
+    body: 'Set the boundaries of your environment. Keep proprietary data fully within your jurisdiction and perimeter to meet sovereignty and compliance requirements.',
+  },
+  {
+    stage: 'Step 03',
+    title: 'Choose Optional Add-On Services',
+    body: 'Bring in exactly the OpenTeams engagement you need — from app and model development to embedded engineers — to build, deploy, and maintain your Sovereign Intelligence Hub.',
+  },
+];
+
+const audience = [
+  {
+    label: 'BioTech',
+    body: 'OpenTeams built a transparent, explainable model for a biotech firm that fixed chaotic tooling and scattered ML workflows.',
+  },
+  {
+    label: 'Investment Firms',
+    body: 'OpenTeams built an auditable system for an investment firm that they truly owned.',
+  },
+  {
+    label: 'Government',
+    body: 'Nebari® is officially listed as a JATIC product as part of the next-gen toolchain supporting DoD AI development.',
+  },
+  {
+    label: 'Energy',
+    body: "A top energy team was lean by design. They weren't trying to become a data company. OpenTeams built the exact solution they needed.",
+  },
+];
+---
+
+<BaseLayout
+  title="Nebari by OpenTeams: Secure, Open Source AI Infrastructure"
+  description="Deploy scalable, secure AI infrastructure that you own with Nebari. No vendor lock-in. Built for sovereignty and compliance."
+>
+  <PageHero
+    eyebrow="01 / Foundation"
+    title="Build Your Own Intelligence Hub"
+    lead="Nebari is the open-source foundation for data science and AI infrastructure. Deploy scalable, secure AI you actually own — models, data, and workflows stay in your environment from day one."
+  >
+    <div class="hero__cta">
+      <a href="/contact-us/" class="btn btn--coral">Book a Discovery Call</a>
+      <a href="/ai-ml-products/" class="btn btn--ghost">Explore Products</a>
+    </div>
+  </PageHero>
+
+  <!-- What it is -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">What Is Nebari</p>
+      <h2>Apply Human Insight to AI</h2>
+      <p class="lead">
+        Nebari brings data science and AI infrastructure together in one open,
+        secure platform. Discover, develop, deploy, and manage AI capabilities
+        for your organization — without ever compromising ownership.
+      </p>
+      <div class="grid grid--3 pillars">
+        {pillars.map((p) => (
+          <div class="card">
+            <h3>{p.title}</h3>
+            <p class="muted">{p.body}</p>
+          </div>
+        ))}
+      </div>
+      <blockquote class="quote">
+        <p>
+          &ldquo;Before Nebari®, we needed a DevOps engineer to launch and
+          maintain the deployment. Now anyone can manage users, environments,
+          and deployments with GUI tools and simple config scripts.&rdquo;
+        </p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Key capabilities -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">Key Capabilities</p>
+      <h2>Everything you need to run owned AI</h2>
+      <div class="grid grid--2 caps">
+        {capabilities.map((c) => (
+          <div class="card">
+            <p class="card__num">{c.num}</p>
+            <h3>{c.title}</h3>
+            <p>{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-step path -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">Nebari's 3-Step Path</p>
+      <h2>A clear path to your custom AI capability</h2>
+      <p class="lead">
+        The software is free and you fully own it. Our service is helping you
+        build, deploy, and maintain your sovereign AI capability — we meet you
+        where you are and provide the exact infrastructure you need to succeed.
+      </p>
+      <div class="grid grid--3 steps">
+        {steps.map((s) => (
+          <div class="card">
+            <p class="card__num">{s.stage}</p>
+            <h3>{s.title}</h3>
+            <p class="muted">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Who It's For</p>
+      <h2>Built for teams that can't compromise on ownership</h2>
+      <div class="grid grid--2 audience">
+        {audience.map((a) => (
+          <div class="card">
+            <h3>{a.label}</h3>
+            <p class="muted">{a.body}</p>
+          </div>
+        ))}
+      </div>
+      <div class="center" style="margin-top:2rem">
+        <a href="/case-studies/" class="btn btn--ghost">Read the case studies</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>Build Your Intelligence Hub</h2>
+      <p class="lead" style="margin-inline:auto">
+        Own your future with Nebari. We build your system, train your team, and
+        support you as long as needed — no lock-in required.
+      </p>
+      <a href="/contact-us/" class="btn btn--primary">Book a Discovery Call</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+
+  .pillars, .caps, .steps, .audience { margin-top: 2.5rem; }
+
+  .quote {
+    margin: 2.5rem 0 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--ot-coral-500);
+    max-width: 60ch;
+  }
+  .quote p {
+    font-family: var(--ot-font-display);
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    font-weight: 500;
+    color: var(--ot-navy-900);
+    margin: 0;
+  }
+
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .final-cta .btn { margin-top: 1.5rem; }
+</style>

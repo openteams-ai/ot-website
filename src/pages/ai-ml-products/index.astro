@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const modelCategories = [
+  {
+    tag: '🚀 Large LLMs',
+    title: 'Optimized for high-scale performance',
+    body: 'Frontier-scale models for advanced use cases that demand maximum capability.',
+    models: [
+      'Llama-3.1-405B — Meta’s flagship, competitive with proprietary systems across a wide range of tasks.',
+      'Mistral-Large (123B) — notable for its efficiency and competitive performance.',
+      'Jamba 1.5 Large (398B / 94B-active) — hybrid Transformer-Mamba MoE with 256K context and high throughput.',
+      'DeepSeek-V2.5 (236B / 21B-active) — mixture-of-experts design activating 21B parameters per token.',
+      'Mixtral 8x22 (141B / 39B-active) — sparse MoE balancing performance and efficiency.',
+      'Grok-1 (314B / 78B-active) — designed for general-purpose tasks.',
+      'Command R+ (104B) — tailored to long context and multi-step agentic RAG with tool use.',
+      'Nemotron-4-340B — NVIDIA’s large general-purpose model with extensive alignment.',
+    ],
+  },
+  {
+    tag: '🛠️ Mid-Sized LLMs',
+    title: 'Balanced for efficiency and performance',
+    body: 'Strong capability in smaller, more affordable environments.',
+    models: [
+      'Llama-3.3-70B — a balance between performance and resource requirements.',
+      'Qwen-2.5-72B (and 32B) — efficient processing with strong performance across applications.',
+      'Yi-1.5-34B — optimized for multilingual support and diverse task performance.',
+      'Gemma-2-27B — focused on coherent, contextually relevant conversational AI.',
+      'Mixtral-8x7B — sparse MoE with 8 experts of 7B parameters, ~12.9B active per token.',
+    ],
+  },
+  {
+    tag: '💻 Code / Logic LLMs',
+    title: 'Built for code generation and reasoning',
+    body: 'Models specialized for programming languages and logical reasoning.',
+    models: [
+      'Qwen2.5-Coder-32B — code generation and understanding across many languages.',
+      'QwQ-32B-Preview — Qwen with Questions, focused on internal-dialog-like reasoning.',
+      'CodeGeeX4-All-9B — a smaller model for code generation across languages.',
+      'Codestral-22B — Mistral AI’s code model, surpassing Llama3 70B on HumanEval FIM.',
+      'CodeLlama (34B, 70B) — Meta Llama variants fine-tuned for code.',
+      'StarCoder2 (StarChat2)-15B — code generation plus interactive coding assistance.',
+    ],
+  },
+  {
+    tag: '🖼️ Vision Language Models',
+    title: 'Bridging visual and textual understanding',
+    body: 'Multimodal models that reason across images, documents, and text.',
+    models: [
+      'PaliGemma — SigLIP-So400m vision encoder paired with Gemma-2B for versatile tasks.',
+      'CogVLM — integrates visual and textual data for comprehensive understanding.',
+      'Qwen2-VL — a ViT-enhanced Qwen-VL for seamless image and video input.',
+      'Molmo (7B, 72B) — multimodal models for advanced vision-language understanding.',
+      'Pixtral-12B — leading multimodal performance on natural images and documents.',
+      'Phi3.5-vision — a 4.2B multimodal model efficient enough for modern smartphones.',
+    ],
+  },
+];
+
+const infra = [
+  { title: 'JAX', body: 'High-performance machine learning with automatic differentiation.' },
+  { title: 'PyTorch', body: 'A leading deep learning framework.' },
+  { title: 'Ray', body: 'Distributed computing made easy.' },
+  { title: 'Dask', body: 'Flexible parallel computing for large datasets.' },
+  { title: 'Hugging Face', body: 'Democratizing AI development (some models require purchased licensing).' },
+  { title: 'Lightning', body: 'Streamlining deep learning research (some models require purchased licensing).' },
+];
+
+const dataTools = [
+  { title: 'Kafka', body: 'Real-time data streaming.' },
+  { title: 'Spark', body: 'Unified analytics for large-scale data.' },
+  { title: 'Flink', body: 'Stream processing at its finest.' },
+  { title: 'Airflow', body: 'Workflow automation made simple.' },
+  { title: 'Presto', body: 'Interactive querying at scale.' },
+  { title: 'ElasticSearch', body: 'Advanced search and analytics.' },
+  { title: 'Iceberg', body: 'Modern table format for data lakes.' },
+  { title: 'Vector Databases', body: 'Pinecone, Weaviate, Milvus, and more — efficiently store and query embeddings.' },
+];
+
+const aiOps = [
+  { title: 'Nebari', body: 'Your foundation for scalable AI operations.' },
+  { title: 'Conda', body: 'Streamlining package management and reproducible environments.' },
+  { title: 'vLLM & Triton', body: 'Simplifying deployment and inference at scale.' },
+];
+---
+
+<BaseLayout
+  title="AI/ML Products"
+  description="Explore open source artificial intelligence and machine learning products. From LLMs to AI infrastructure, enjoy AI innovation without vendor constraints."
+>
+  <PageHero
+    eyebrow="AI/ML Products"
+    title="Open Source Models, Frameworks & Tools"
+    lead="Explore open source artificial intelligence and machine learning products. From LLMs to AI infrastructure, enjoy AI innovation without vendor constraints."
+  >
+    <div class="hero__cta">
+      <a href="/contact-us/" class="btn btn--coral">Book a Discovery Call</a>
+      <a href="/nebari/" class="btn btn--ghost">Explore Nebari</a>
+    </div>
+  </PageHero>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Open Innovation</p>
+      <h2>AI/ML Solutions Built for Ownership</h2>
+      <p class="lead">
+        Discover the tools and frameworks to perfect your AI journey. From
+        cutting-edge models to robust infrastructure, we have everything you need
+        to accelerate innovation. Don’t see the open source product you need?
+        Contact us — we likely have it.
+      </p>
+    </div>
+  </section>
+
+  <!-- Models -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">Models</p>
+      <h2>Large language & vision models</h2>
+      <p class="lead">
+        A curated catalog of leading open models, ready to run inside your own
+        environment — no vendor constraints, no data leaving your walls.
+      </p>
+      <div class="grid grid--2 models">
+        {modelCategories.map((c) => (
+          <div class="card model-card">
+            <p class="card__num">{c.tag}</p>
+            <h3>{c.title}</h3>
+            <p class="muted">{c.body}</p>
+            <ul class="model-list">
+              {c.models.map((m) => <li>{m}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <p class="muted note">
+        🔍 Smaller LLMs — lightweight models for rapid deployment, such as
+        Llama-3.1-8B, offer competitive performance in a compact package suited to
+        a wide range of applications.
+      </p>
+    </div>
+  </section>
+
+  <!-- Infrastructure -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">AI/ML Infrastructure</p>
+      <h2>Power your models with the right tools</h2>
+      <p class="lead">Frameworks engineered for performance and scalability.</p>
+      <div class="grid grid--3 tools">
+        {infra.map((t) => (
+          <div class="card tool-card">
+            <h3>{t.title}</h3>
+            <p class="muted">{t.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Data -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">Data for AI</p>
+      <h2>Organize and process your data</h2>
+      <p class="lead">
+        Powerful data processing tools, databases, and vector stores to feed your
+        models with clean, fast, reliable data.
+      </p>
+      <div class="grid grid--4 tools">
+        {dataTools.map((t) => (
+          <div class="card tool-card">
+            <h3>{t.title}</h3>
+            <p class="muted">{t.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Ops -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">AI Ops</p>
+      <h2>Deploy, manage, and monitor with confidence</h2>
+      <div class="grid grid--3 tools">
+        {aiOps.map((t) => (
+          <div class="card tool-card">
+            <h3>{t.title}</h3>
+            <p>{t.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">End to End</p>
+      <h2>Seamless AI Stack Integration</h2>
+      <p class="lead">
+        We make all the pieces work together. Whether you’re building pipelines,
+        deploying models, or integrating AI solutions, our team ensures smooth
+        implementation for your stack.
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>Let’s Talk</h2>
+      <p class="lead" style="margin-inline:auto">
+        Looking for something specific or need guidance on choosing the right
+        tools? We want to hear from you.
+      </p>
+      <a href="/contact-us/" class="btn btn--primary">Talk to Us</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+  .models, .tools { margin-top: 2.5rem; }
+
+  .model-card { display: flex; flex-direction: column; }
+  .model-list {
+    list-style: none;
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .model-list li {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 0.95rem;
+    color: var(--ot-ink-700);
+    line-height: 1.5;
+  }
+  .model-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ot-coral-500);
+  }
+
+  .tool-card h3 { margin-bottom: 0.35rem; }
+
+  .note { margin-top: 2rem; max-width: 70ch; }
+
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .final-cta .btn { margin-top: 1.5rem; }
+</style>

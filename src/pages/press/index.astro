@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const featured = {
+  title:
+    'OpenTeams Announces CEO Transition, Marking Next Phase of Growth and Product Expansion',
+  body: 'Travis Oliphant will assume the CEO role as the company builds on Joe Merrill’s leadership, transforming OpenTeams into a product-driven AI company centered on Nebari.',
+};
+
+const releases = [
+  {
+    title:
+      'BMNT, OpenTeams Announce Strategic Partnership to Accelerate AI Adoption in Government',
+    body: 'Partnership delivers working AI capability against validated government needs in days, not months.',
+  },
+  {
+    title: 'OpenTeams Partners with CultRepo to release Python: The Documentary',
+    body: 'The film highlights the experts behind the world’s most influential programming language and showcases OpenTeams Founder and NumPy creator Travis Oliphant.',
+  },
+  {
+    title: 'OpenTeams Announces CMMC 2.0 Compliance',
+    body: 'AUSTIN, Texas — OpenTeams, the leader in AI models that organizations can fully own and control, announced its compliance with Cybersecurity Maturity Model Certification Level 2 (CMMC 2.0).',
+  },
+  {
+    title:
+      'OpenTeams Appoints Lt. Gen (Ret) Ross Coffman to Board of Directors',
+    body: 'Strategic addition furthers OpenTeams’ commitment to promoting transparent and sovereign AI in the government and defense sectors.',
+  },
+  {
+    title: 'OpenTeams & Quansight Partner to Advance Ethical Open Source AI',
+    body: 'OpenTeams and Quansight partner to scale ethical, open-source AI — integrating AI teams and tech to accelerate secure, transparent AI for government and enterprise.',
+  },
+];
+---
+
+<BaseLayout
+  title="Press"
+  description="Welcome to the OpenTeams Press Center. Find the latest company news, press releases, and media resources showing how our team is transforming AI and open source."
+>
+  <PageHero
+    eyebrow="Press Center"
+    title="OpenTeams in the News"
+    lead="Welcome to the OpenTeams Press Center. Here, you’ll find the latest company news, press releases, and media resources that showcase how our team is transforming AI and open source."
+  />
+
+  <!-- Latest News -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Latest News</p>
+      <div class="card featured">
+        <p class="card__num">Featured</p>
+        <h2 class="featured__title">{featured.title}</h2>
+        <p class="muted">{featured.body}</p>
+        <a href="/press/" class="featured__link">Read More &raquo;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Press Releases -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">All Press Releases</p>
+      <h2>More from OpenTeams.</h2>
+      <div class="grid grid--2 releases">
+        {releases.map((r) => (
+          <article class="card release-card">
+            <h3>{r.title}</h3>
+            <p class="muted">{r.body}</p>
+            <a href="/press/" class="release-card__link">Read More &raquo;</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Media resources -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">Media Resources</p>
+      <h2>Never Miss an Update</h2>
+      <p class="lead">
+        Stay up to date with OpenTeams’ impact on AI, enterprise technology, and
+        open source.
+      </p>
+      <div class="stack media">
+        <p>Press inquiries: <a href="mailto:connect@openteams.com">connect@openteams.com</a></p>
+        <p>OpenTeams logos: <a href="/press/">Download Zip File</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>Want to talk to our team?</h2>
+      <p class="lead" style="margin-inline:auto">
+        For media, partnership, or speaking requests, reach out and we’ll get
+        back to you quickly.
+      </p>
+      <a href="/contact-us/" class="btn btn--primary">Contact Us</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .featured { margin-top: 1.5rem; }
+  .featured__title { font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom: 0.75rem; }
+  .featured__link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: var(--ot-font-display);
+    font-weight: 600;
+  }
+
+  .releases { margin-top: 2.5rem; }
+  .release-card { display: flex; flex-direction: column; }
+  .release-card .muted { flex: 1; }
+  .release-card__link {
+    margin-top: 1rem;
+    font-family: var(--ot-font-display);
+    font-weight: 600;
+  }
+
+  .media { margin-top: 1.5rem; }
+  .media a { color: var(--ot-coral-500); }
+
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .final-cta .btn { margin-top: 1.5rem; }
+</style>

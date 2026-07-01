@@ -1,0 +1,233 @@
+---
+const capabilities = [
+  { label: 'Nebari', href: '/nebari/' },
+  { label: 'Python Security Remediation', href: '/python-security-remediation/' },
+  { label: 'AI/ML Products', href: '/ai-ml-products/' },
+  { label: 'AI Readiness Assessment', href: '/ai-readiness-assessment/' },
+  { label: 'Open SaaS', href: '/open-saas/' },
+  { label: 'Ad Analytics', href: '/ai-logo-detection-ad-analytics/' },
+];
+const resources = [
+  { label: 'OpenTeams Blog', href: '/blog/' },
+  { label: 'Engineering Blog', href: '/engineering-blog/' },
+  { label: 'Case Studies', href: '/case-studies/' },
+];
+const company = [
+  { label: 'About Us', href: '/about-us/' },
+  { label: 'Press Room', href: '/press/' },
+  { label: 'Careers', href: '/careers/' },
+];
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__logo" aria-label="OpenTeams home">
+      <img src="/assets/openteams-white-horizontal.png" alt="OpenTeams" width="180" height="32" />
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li class="nav-item nav-item--has-menu">
+          <button class="nav-link" aria-expanded="false">Capabilities</button>
+          <div class="dropdown">
+            {capabilities.map((i) => <a href={i.href}>{i.label}</a>)}
+          </div>
+        </li>
+        <li class="nav-item nav-item--has-menu">
+          <button class="nav-link" aria-expanded="false">Resources</button>
+          <div class="dropdown">
+            {resources.map((i) => <a href={i.href}>{i.label}</a>)}
+          </div>
+        </li>
+        <li class="nav-item nav-item--has-menu">
+          <button class="nav-link" aria-expanded="false">Company</button>
+          <div class="dropdown">
+            {company.map((i) => <a href={i.href}>{i.label}</a>)}
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="/contact-us/" class="btn btn--coral nav-cta">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(1, 11, 43, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--ot-border-dark);
+  }
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--ot-header-h);
+  }
+  .site-header__logo img { display: block; }
+
+  .primary-nav .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    list-style: none;
+  }
+  .nav-item { position: relative; }
+  .nav-link {
+    font-family: var(--ot-font-display);
+    font-weight: 500;
+    font-size: 0.98rem;
+    color: rgba(255, 255, 255, 0.85);
+    background: none;
+    border: 0;
+    padding: 0.55rem 0.85rem;
+    cursor: pointer;
+    border-radius: var(--ot-radius-pill);
+  }
+  .nav-item--has-menu > .nav-link::after {
+    content: '▾';
+    font-size: 1.05em;
+    line-height: 1;
+    margin-left: 0.4rem;
+    opacity: 0.85;
+  }
+  .nav-link:hover { color: #fff; }
+  .nav-cta { margin-left: 0.5rem; }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-top: 0.4rem solid transparent;
+    background-clip: padding-box;
+    min-width: 230px;
+    background: #fff;
+    border: 1px solid var(--ot-border);
+    border-radius: var(--ot-radius);
+    box-shadow: var(--ot-shadow-lg);
+    padding: 0.5rem;
+    display: grid;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  }
+  .dropdown a {
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--ot-radius-sm);
+    color: var(--ot-ink-900);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .dropdown a:hover { background: var(--ot-lavender-50); color: var(--ot-navy-800); }
+
+  .nav-item--has-menu:hover .dropdown,
+  .dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .nav-toggle { display: flex; }
+    .primary-nav {
+      position: absolute;
+      top: var(--ot-header-h);
+      left: 0;
+      right: 0;
+      background: #010b2b;
+      border-bottom: 1px solid var(--ot-border-dark);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+    .primary-nav.open { max-height: 90vh; overflow-y: auto; }
+    .primary-nav .nav-list {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 1rem var(--ot-gutter) 2rem;
+    }
+    .nav-link { width: 100%; text-align: left; }
+    .dropdown {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      border: 0;
+      background: transparent;
+      padding: 0 0 0.5rem 1rem;
+      display: none;
+    }
+    .dropdown.open { display: grid; }
+    .dropdown a { color: rgba(255, 255, 255, 0.8); }
+    .dropdown a:hover { background: rgba(255,255,255,0.06); color: #fff; }
+    .nav-cta { margin: 0.75rem 0 0; width: fit-content; }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('primary-nav');
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(!!open));
+  });
+
+  // Click a menu label (or its arrow) to toggle its dropdown — works on all viewports.
+  const menuButtons = document.querySelectorAll('.nav-item--has-menu > .nav-link');
+
+  function closeAll(except) {
+    menuButtons.forEach((btn) => {
+      if (btn === except) return;
+      btn.nextElementSibling?.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  menuButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dd = btn.nextElementSibling;
+      const willOpen = !dd?.classList.contains('open');
+      closeAll(btn);
+      dd?.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', String(willOpen));
+    });
+  });
+
+  // Close dropdowns on outside click or Escape.
+  document.addEventListener('click', (e) => {
+    if (!(e.target instanceof Element) || !e.target.closest('.nav-item--has-menu')) {
+      closeAll(null);
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAll(null);
+  });
+</script>
