@@ -53,7 +53,7 @@ const socials = [
         <form class="newsletter" onsubmit="return false" aria-label="Newsletter signup">
           <label for="nl-email" class="sr-only">Email address</label>
           <input id="nl-email" type="email" placeholder="you@company.com" autocomplete="email" />
-          <button type="submit" class="btn btn--coral">Subscribe</button>
+          <button type="submit" class="btn btn--coral" disabled aria-disabled="true">Subscribe</button>
         </form>
         <ul class="socials">
           {socials.map((s) => (
@@ -109,6 +109,11 @@ const socials = [
     font: inherit;
   }
   .newsletter input::placeholder { color: rgba(255, 255, 255, 0.45); }
+  .newsletter .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
   .socials {
     display: flex;
     flex-wrap: wrap;
