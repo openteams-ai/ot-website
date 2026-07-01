@@ -2,43 +2,62 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 
-const posts = [
+const allPosts = [
   {
-    tag: '01',
+    date: '2026-05-13',
     title: 'PDF Table Extraction: Docling vs Marker vs LlamaParse Compared',
-    body: 'A hands-on benchmark of three document-parsing pipelines on real-world PDFs — accuracy, speed, and where each one breaks down.',
+    body: 'Compare three Python tools for PDF table extraction: Docling, Marker, and LlamaParse. Learn which handles merged cells and multi-level headers best.',
+    author: 'Khuyen Tran',
+    href: '/engineering-blog/docling-vs-marker-vs-llamaparse/',
   },
   {
-    tag: '02',
+    date: '2026-05-01',
     title: 'Sandboxing Code Mode for Local LLM Agents',
-    body: 'How we let a local LLM agent run code safely, with isolation that keeps experiments contained without slowing the inner loop.',
+    body: 'Code mode can make local LLM agents more practical, but executing model-written code brings sandboxing back into the architecture.',
+    author: 'Nick Byrne & Khuyen Tran',
+    href: '/engineering-blog/code-mode-sandboxing-local-llms/',
   },
   {
-    tag: '03',
-    title: 'Plugin Playground AI Integration for Faster Plugin Prototyping',
-    body: 'Wiring AI into a plugin playground so developers can prototype, test, and iterate on integrations in a fraction of the time.',
-  },
-  {
-    tag: '04',
+    date: '2026-04-19',
     title: 'Slow Down — Simple Lessons for Guiding AI and Shipping Better Code',
-    body: 'The counterintuitive practices that make AI-assisted development faster in the long run: clearer intent, tighter feedback, better code.',
+    body: 'Practical lessons for shipping better code, staying in control, keeping your skills sharp, and getting real value from AI coding tools without losing yourself in the hype.',
+    author: 'Johnny Bouder',
+    href: '/engineering-blog/slow-down-ship-better-code/',
   },
   {
-    tag: '05',
+    date: '2026-04-16',
     title: 'We Benchmarked 6 Python Package Managers on a Real ML Project',
-    body: 'pip, Poetry, PDM, Conda, and more — measured on a real machine-learning project. Here’s what we found on speed and reproducibility.',
+    body: 'Head-to-head benchmark of pixi, uv, conda, mamba, pip, and poetry on a real ML/AI project with 25+ mixed conda-forge and PyPI dependencies.',
+    author: 'Brandon Geraci',
+    href: '/engineering-blog/benchmark-python-package-managers/',
   },
   {
-    tag: '06',
+    date: '2026-04-15',
+    title: 'Plugin Playground AI Integration for Faster Plugin Prototyping',
+    body: 'How we integrated AI into Plugin Playground to help you create, edit, test, package, and share JupyterLab plugins faster in JupyterLite and Binder.',
+    author: 'Anuj Kumar Singh',
+    href: '/engineering-blog/plugin-playground-ai-integration/',
+  },
+  {
+    date: '2026-04-09',
     title: 'What I Learned Making a Local LLM Do Real Work',
-    body: 'Notes from the trenches of running a local model on genuine tasks — the tuning, the trade-offs, and where local wins.',
+    body: 'What makes a local LLM agent reliable enough for real work: evals, deterministic Python logic, and why a better model beats engineering.',
+    author: 'Adam Lewis',
+    href: '/engineering-blog/what-i-learned-making-a-local-llm-do-real-work/',
   },
   {
-    tag: '07',
+    date: '2026-04-09',
     title: 'From Skill to Agent: When a Text File Isn’t Enough',
-    body: 'The line where a static skill file gives way to a full agent — and how to know when your automation needs to cross it.',
+    body: 'When does a Claude Code skill stop being enough? See why credential security pushes real workflows toward proper agent architectures.',
+    author: 'Adam Lewis',
+    href: '/engineering-blog/from-skill-to-agent/',
   },
 ];
+
+// Newest first, with the tag number reflecting the sorted position.
+const posts = [...allPosts]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .map((p, i) => ({ ...p, tag: String(i + 1).padStart(2, '0') }));
 ---
 
 <BaseLayout
@@ -58,10 +77,11 @@ const posts = [
       <h2>Built in production, shared in the open.</h2>
       <div class="grid grid--3 posts">
         {posts.map((p) => (
-          <a href="#" class="card post-card">
+          <a href={p.href} class="card post-card">
             <p class="card__num">{p.tag}</p>
             <h3>{p.title}</h3>
             <p class="muted">{p.body}</p>
+            <p class="post-card__author">By {p.author}</p>
             <span class="post-card__link">Read More &rarr;</span>
           </a>
         ))}
@@ -88,11 +108,17 @@ const posts = [
   .post-card { display: flex; flex-direction: column; color: inherit; }
   .post-card:hover { border-color: var(--ot-coral-500); }
   .post-card .muted { flex: 1; }
+  .post-card__author {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ot-ink-500);
+    margin: 1rem 0 0;
+  }
   .post-card__link {
     font-family: var(--ot-font-display);
     font-weight: 600;
     color: var(--ot-coral-500);
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
 
   .final-cta { background: var(--ot-lavender-50); }

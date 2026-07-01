@@ -4,34 +4,58 @@ import PageHero from '../../components/PageHero.astro';
 
 const studies = [
   {
-    tag: '01 / BioTech',
-    title: 'Jupyter Everywhere in the Classroom',
-    body: 'A 501(c)(3) nonprofit improving data literacy and math outcomes in underserved schools went from a 2% AP Statistics pass rate to teaching data science with Jupyter across the classroom.',
+    tag: '01 / Biotech',
+    title: 'The Lung That Failed and What It Taught Us About AI',
+    body: 'A biotech firm saved millions by turning messy data into predictions. Here’s how OpenTeams helped them own their AI infrastructure — before it failed.',
+    href: '/blog/the-lung-that-failed-and-what-it-taught-us-about-ai/',
   },
   {
-    tag: '02 / Ad Analytics',
-    title: 'AI-Powered Logo Detection for Ad Analytics',
-    body: 'See how OpenTeams freed an ad analytics firm from black-box SaaS. We built a custom AI logo detection solution using PyTorch and AWS for total control and scale.',
-  },
-  {
-    tag: '03 / Government · JATIC / DoD',
-    title: 'Open Source Isn’t the Real Risk in National Defense',
-    body: 'Government contracts aren’t immune to AI hype. Most defense teams face the same wall: slow-moving, locked-in systems built by vendors who sell mystery, not control.',
-  },
-  {
-    tag: '04 / AI Company',
-    title: 'How a Fast-Growing AI Company Rebuilt from the Stack Up',
-    body: 'This team had built something remarkable: intelligent agents that could parse documents in seconds, respond around the clock, and surface insights from oceans of unstructured data — then rebuilt the foundation to own it.',
-  },
-  {
-    tag: '05 / Investments',
+    tag: '02 / Investment Management',
     title: 'Inside a $1T Firm’s Fight to Build Real AI Infrastructure',
     body: 'The biggest threat to your AI rollout isn’t the tech. It’s the gap between vision and execution. We built an auditable system this investment firm truly owned.',
+    href: '/blog/inside-a-1t-firms-fight-to-build-real-ai-infrastructure/',
   },
   {
-    tag: '06 / Energy',
+    tag: '03 / Defense',
+    title: 'Open Source Isn’t the Real Risk in National Defense.',
+    body: 'Government contracts aren’t immune to AI hype. Most defense teams hit the same wall: slow-moving, locked-in systems built by vendors who sell mystery boxes.',
+    href: '/blog/open-source-isnt-the-real-risk-in-national-defense/',
+  },
+  {
+    tag: '04 / Aerospace',
+    title: 'What NASA Did That Every Tech Leader Should Steal',
+    body: 'Behind the missions, the telescopes, and the frontier-breaking discoveries, there’s a quiet frontier most people never see: software infrastructure.',
+    href: '/blog/what-nasa-did-that-every-tech-leader-should-steal/',
+  },
+  {
+    tag: '05 / Energy',
+    title: 'They Didn’t Want a Vendor. They Wanted Ownership.',
+    body: 'Energy infrastructure is changing faster than policy can keep up. Power sources are becoming decentralized. Grids are growing brittle.',
+    href: '/blog/they-didnt-want-a-vendor-they-wanted-ownership/',
+  },
+  {
+    tag: '06 / Strategic Intelligence',
+    title: 'How a Fast-Growing AI Company Rebuilt from the Stack Up',
+    body: 'This team had built something remarkable: intelligent agents that could parse documents in seconds, respond around the clock, and surface insights on demand — then rebuilt the foundation to own it.',
+    href: '/blog/how-a-fast-growing-ai-company-rebuilt-from-the-stack-up/',
+  },
+  {
+    tag: '07 / Advertising',
+    title: 'AI-powered Logo Detection for Ad Analytics',
+    body: 'See how OpenTeams freed an ad analytics firm from black-box SaaS. We built a custom AI logo detection solution using PyTorch and AWS for total control and scale.',
+    href: '/ai-logo-detection-ad-analytics/',
+  },
+  {
+    tag: '08 / Education',
+    title: 'From a 2% AP Statistics Pass Rate to Jupyter Everywhere in the Classroom',
+    body: 'How Skew The Script and OpenTeams brought secure, browser-based Jupyter notebooks to underserved K–12 classrooms.',
+    href: '/case-studies/from-a-2-ap-statistics-pass-rate-to-jupyter-everywhere-in-the-classroom/',
+  },
+  {
+    tag: '09 / Open Source',
     title: 'Open Source Looks Risky. That’s Why It Works',
-    body: 'The codebase behind half the web is open source — OpenSSL guards passwords, medical records, and critical infrastructure. A lean energy team got the exact owned solution they needed.',
+    body: 'Heartbleed scared the world — but it proved open source is safer than closed source. Why transparency is the real foundation of software security.',
+    href: '/case-studies/why-open-source-is-secure/',
   },
 ];
 
@@ -75,7 +99,7 @@ const outcomes = [
       <h2>Owned AI, in the real world.</h2>
       <div class="grid grid--3 studies">
         {studies.map((s) => (
-          <a href="#" class="card case-card">
+          <a href={s.href} class="card case-card">
             <p class="card__num">{s.tag}</p>
             <h3>{s.title}</h3>
             <p class="muted">{s.body}</p>

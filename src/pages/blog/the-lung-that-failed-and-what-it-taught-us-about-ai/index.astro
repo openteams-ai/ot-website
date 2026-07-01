@@ -1,0 +1,87 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost
+  title="The Lung That Failed and What It Taught Us About AI"
+  description="A biotech firm saved millions by turning messy data into predictions. Learn how OpenTeams helped them own their AI infrastructure, before it failed."
+  date="2025-05-23"
+  deck="How a $13B biotech company turned a wall of dead data into a predictive engine for saving lives, with help from Quansight & OpenTeams."
+>
+  <h2>It started with a lung</h2>
+  <p>It looked healthy. It had passed every test. Then, at the very last moment—after weeks of preparation—it failed.</p>
+  <p>No warning. No visible defects. Just a quiet blemish, invisible until it was too late. Every failed lung meant starting over. Cost, time, risk—reset.</p>
+  <p>That lung would never save a life.</p>
+  <p>One biotech company was building lab-grown, transplant-ready human lungs. And every failure was a mystery buried in a swamp of sensor data.</p>
+  <p>They knew the signals were in there. But their tools couldn’t see them.</p>
+
+  <h2>The Problem: Data Couldn’t Keep Up</h2>
+  <p>Every decellularization run created a storm of biological data: pressure curves, timing pulses, second-by-second readouts from dozens of sensors. But those signals were stored in clunky CSV files across brittle systems. Just opening a file could take ten minutes. Building a predictive model? Forget it. The infrastructure simply couldn’t keep up with the biology.</p>
+  <p>That’s when they called Quansight Consulting—recently merged with OpenTeams, both founded by open source pioneer Travis Oliphant.</p>
+
+  <h3>Why The Stack Wouldn’t See The Signals</h3>
+
+  <h3>The Fix: Infrastructure That Works</h3>
+  <p>When Quansight stepped in, we brought a new way of thinking.</p>
+  <p>Before we talked about AI, we talked about plumbing. Because no algorithm can run on a broken pipe.</p>
+  <ul>
+    <li><strong>From CSV to Parquet</strong>: Data was transformed into columnar format. Suddenly, insights loaded in seconds, not hours.</li>
+    <li><strong><a href="https://www.nebari.dev/" target="_blank" rel="noopener noreferrer">Nebari platform deployed</a></strong>: A scalable, shareable data science platform took root—version-controlled, reproducible, and ready for experimentation.</li>
+    <li><strong>Web app tuned</strong>: Visualizations snapped to life. It used to take minutes just to show a small portion of data. Now it takes seconds to deeply explore the entire dataset.</li>
+    <li><strong>Dev environment stabilized</strong>: Goodbye, dependency hell. Hello, smooth workflows with Conda and Mamba.</li>
+  </ul>
+  <p>Only once the lab could breathe did we turn to prediction.</p>
+
+  <h3>The Breakthrough: A Model That Could See What Eyes Couldn’t</h3>
+  <p>Once the infrastructure was humming, it was time to ask the question that had haunted the lab for years: Can we predict which lungs will fail?</p>
+  <p>Our data scientists dove in.</p>
+  <ul>
+    <li>They <strong>engineered features</strong> based on every phase of the decell process.</li>
+    <li>They built <strong>logistic regression and tree-based models</strong> to predict three common failure types: blebs, bullae, and blemishes.</li>
+    <li>They used <strong>causal discovery techniques</strong>—not just correlations, but models that explained why.</li>
+    <li>And crucially,<strong> they made it interpretable</strong>. No black boxes. Every prediction was traceable, understandable, and testable.</li>
+  </ul>
+  <p>Then it happened.</p>
+  <p>A lung failed—just as the model predicted. Only this time, it wasn’t a surprise. Teams could adapt. Investigate. Modify protocols.</p>
+  <p>The team could respond instead of react.</p>
+
+  <h3>Why it worked</h3>
+  <p>We delivered clarity because we listened. We met with their scientists to understand what they needed—then we delivered.</p>
+  <p>When the stakes are this high, black boxes don’t cut it.</p>
+  <p>You need transparent systems that your team can understand.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Before</th>
+        <th>After</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>CSV bottlenecks: 10–15 min/file</td>
+        <td>Parquet + parallel reads</td>
+      </tr>
+      <tr>
+        <td>Manual QA, manual failure review</td>
+        <td>Reproducible, versioned environments (Nebari)</td>
+      </tr>
+      <tr>
+        <td>Unstructured environments</td>
+        <td>Unstructured environments</td>
+      </tr>
+      <tr>
+        <td>Unstructured environments</td>
+        <td>Unstructured environments</td>
+      </tr>
+      <tr>
+        <td>No ML</td>
+        <td>Proactive failure response</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Now, It’s Your Turn</h3>
+  <p>You’ve got smart people. But smart people can’t outrun broken systems.</p>
+  <p>Don’t wait for your next failure to start fixing the pipeline.</p>
+  <p>Let’s talk before the data goes silent again.</p>
+</BlogPost>

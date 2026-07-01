@@ -3,42 +3,64 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 
 const featured = {
-  title: 'The State of AI Infrastructure',
-  body: 'Why most companies extract nothing from artificial intelligence, and what the ones who do are doing differently.',
+  title: 'The Democratization of AI Has Already Happened',
+  body: 'AI isn’t locked up by Big Tech. It’s already open. The future belongs to those who see that the AI revolution is being led by open source — quietly, but definitively.',
+  href: '/blog/the-democratization-of-ai-has-already-happened/',
 };
 
-const posts = [
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const fmt = (iso) => {
+  const [y, m, d] = iso.split('-');
+  return `${MONTHS[Number(m) - 1]} ${Number(d)}, ${y}`;
+};
+
+const allPosts = [
   {
-    date: 'June 15, 2026',
-    title: 'What Hardware Do I Get!?',
-    body: 'A grounded look at what infrastructure actually powers owned intelligence — and how to size it for your organization.',
-  },
-  {
-    date: 'April 9, 2026',
-    title: 'Control',
-    body: 'Ownership isn’t a feature you buy. It’s the difference between renting access and controlling the layer where your AI runs.',
-  },
-  {
-    date: 'March 6, 2025',
-    title: 'AI & Defense Experts to Lead OpenTeams’ National Defense Summit During SXSW',
-    body: 'Leaders in national defense and open-source AI gather to chart a path toward transparent, controllable systems.',
-  },
-  {
-    date: 'June 26, 2025',
-    title: 'They Didn’t Want a Vendor. They Wanted Ownership.',
-    body: 'How one team stopped paying to build someone else’s asset and started compounding value inside their own environment.',
-  },
-  {
-    date: 'October 2, 2025',
+    date: '2025-10-02',
     title: 'My Mom Is Scared of AI. She’s Scared of the Wrong Thing.',
-    body: 'The real risk isn’t the technology. It’s dependence on systems you can’t inspect, audit, or own.',
+    body: 'The immediate danger isn’t AI itself. It’s humans using AI as a tool for unchecked power.',
+    href: '/blog/ai-data-sovereignty/',
   },
   {
-    date: 'December 3, 2024',
-    title: 'What Are Python Asterisk and Slash Special Parameters For?',
-    body: 'A practical dive into positional-only and keyword-only parameters — small syntax with a big impact on readable APIs.',
+    date: '2025-07-03',
+    title: 'Open Source Isn’t the Real Risk in National Defense.',
+    body: 'Government contracts aren’t immune to AI hype. Most defense teams hit the same wall: slow-moving, locked-in systems built by vendors who sell mystery boxes.',
+    href: '/blog/open-source-isnt-the-real-risk-in-national-defense/',
+  },
+  {
+    date: '2025-06-27',
+    title: 'Inside a $1T Firm’s Fight to Build Real AI Infrastructure',
+    body: 'The biggest threat to your AI rollout isn’t the tech. It’s the gap between vision and execution.',
+    href: '/blog/inside-a-1t-firms-fight-to-build-real-ai-infrastructure/',
+  },
+  {
+    date: '2025-06-27',
+    title: 'How a Fast-Growing AI Company Rebuilt from the Stack Up',
+    body: 'This team had built something remarkable: intelligent agents that could parse documents in seconds, respond around the clock, and surface insights on demand.',
+    href: '/blog/how-a-fast-growing-ai-company-rebuilt-from-the-stack-up/',
+  },
+  {
+    date: '2025-06-26',
+    title: 'They Didn’t Want a Vendor. They Wanted Ownership.',
+    body: 'Energy infrastructure is changing faster than policy can keep up. Power sources are becoming decentralized. Grids are growing brittle.',
+    href: '/blog/they-didnt-want-a-vendor-they-wanted-ownership/',
+  },
+  {
+    date: '2025-06-25',
+    title: 'What NASA Did That Every Tech Leader Should Steal',
+    body: 'Behind the missions, the telescopes, and the frontier-breaking discoveries, there’s a quiet frontier most people never see: software infrastructure.',
+    href: '/blog/what-nasa-did-that-every-tech-leader-should-steal/',
+  },
+  {
+    date: '2025-05-23',
+    title: 'The Lung That Failed and What It Taught Us About AI',
+    body: 'A biotech firm saved millions by turning messy data into predictions. Here’s how OpenTeams helped them own their AI infrastructure — before it failed.',
+    href: '/blog/the-lung-that-failed-and-what-it-taught-us-about-ai/',
   },
 ];
+
+// Newest first.
+const posts = [...allPosts].sort((a, b) => b.date.localeCompare(a.date));
 ---
 
 <BaseLayout
@@ -59,7 +81,7 @@ const posts = [
   <section class="section">
     <div class="container">
       <p class="eyebrow">Featured</p>
-      <a href="#" class="card featured-card">
+      <a href={featured.href} class="card featured-card">
         <h2>{featured.title}</h2>
         <p class="muted">{featured.body}</p>
         <span class="featured-card__link">Read More &rarr;</span>
@@ -74,8 +96,8 @@ const posts = [
       <h2>Read the latest insights</h2>
       <div class="grid grid--3 posts">
         {posts.map((p) => (
-          <a href="#" class="card post-card">
-            <p class="card__num">{p.date}</p>
+          <a href={p.href} class="card post-card">
+            <p class="card__num">{fmt(p.date)}</p>
             <h3>{p.title}</h3>
             <p class="muted">{p.body}</p>
             <span class="post-card__link">Read More &rarr;</span>
