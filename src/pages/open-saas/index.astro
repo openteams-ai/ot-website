@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const comparison = [
+  {
+    feature: 'Data Ownership & Control',
+    saas: 'Limited ownership; data used to train communal models.',
+    open: 'Full ownership and control; data stays on-prem, isolated from communal models.',
+  },
+  {
+    feature: 'Data Privacy & Security',
+    saas: 'Managed by vendor, with risks from multi-tenancy.',
+    open: 'On-site deployment ensures stricter, custom security protocols and full data privacy.',
+  },
+  {
+    feature: 'Competitive Advantage',
+    saas: 'Shared model insights; data indirectly benefits competitors.',
+    open: "Exclusive advantage; models are uniquely trained on your proprietary and public data.",
+  },
+  {
+    feature: 'Customization & Flexibility',
+    saas: 'Limited customization; standardized models.',
+    open: 'Fully customizable; models tailored to your specific needs and use cases.',
+  },
+  {
+    feature: 'Vendor Lock-In',
+    saas: 'High; limited interoperability with other platforms.',
+    open: 'Low; open-source codebase offers flexibility and reduces lock-in risk.',
+  },
+  {
+    feature: 'Cost Structure',
+    saas: 'Recurring subscription fees.',
+    open: 'Lower TCO with optional support subscriptions; more control over infrastructure costs.',
+  },
+  {
+    feature: 'Scalability',
+    saas: "Scaled via vendor's infrastructure.",
+    open: 'You control scale and configuration on your own infrastructure.',
+  },
+  {
+    feature: 'Data Sovereignty Compliance',
+    saas: 'May face challenges in certain regulatory environments.',
+    open: "Enhanced compliance by keeping data fully within your jurisdiction.",
+  },
+  {
+    feature: 'Support & Maintenance',
+    saas: 'Provided by vendor; limited support for customizations.',
+    open: 'Flexible support subscriptions; comprehensive maintenance for on-prem and open-source setups.',
+  },
+  {
+    feature: 'Transparency',
+    saas: 'Limited access to model mechanics and decision-making.',
+    open: 'Full transparency; access to source code, making debugging and adjustments easier.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is Open SaaS?',
+    a: 'Open SaaS combines the flexibility and transparency of open source software with the scalability and support of traditional SaaS. It lets businesses customize and control their software environment without being locked into a vendor’s ecosystem, providing full ownership of your data while reducing costs.',
+  },
+  {
+    q: 'How does Open SaaS ensure data security?',
+    a: 'Open SaaS prioritizes data security by enabling on-premise or private cloud deployment. This eliminates multi-tenancy risks, ensuring your data is isolated and fully protected. With access to the source code, you can implement custom security protocols tailored to your regulatory and operational requirements.',
+  },
+  {
+    q: 'How difficult is it to migrate from traditional SaaS?',
+    a: 'Migration to Open SaaS is a collaborative process. While it requires upfront planning, the long-term benefits far outweigh the transition effort. Our team assists with data migration, infrastructure setup, and system integration, ensuring a smooth transition with minimal downtime.',
+  },
+  {
+    q: 'What are the cost benefits of Open SaaS?',
+    a: 'Unlike traditional SaaS, which charges recurring subscription fees, Open SaaS offers a lower total cost of ownership. You control infrastructure costs and can choose optional support subscriptions based on your needs. Over time, these savings can significantly impact your bottom line.',
+  },
+  {
+    q: 'Can Open SaaS scale with my business?',
+    a: 'Absolutely. Open SaaS is built for scalability. Since you control your infrastructure, you can scale resources up or down based on your needs without being limited by a vendor’s predefined options.',
+  },
+  {
+    q: 'How customizable is Open SaaS?',
+    a: 'Open SaaS is fully customizable. Whether you need unique workflows, integrations with proprietary tools, or tailored user experiences, Open SaaS adapts to your specific business requirements. The flexibility of open source ensures you’re never constrained by one-size-fits-all solutions.',
+  },
+  {
+    q: 'How does Open SaaS help avoid vendor lock-in?',
+    a: 'With Open SaaS, you retain ownership of the software and data. Its open-source foundation ensures interoperability with other platforms and the freedom to switch vendors or bring services in-house without costly disruptions.',
+  },
+];
+---
+
+<BaseLayout
+  title="Open SaaS | OpenTeams: Own Your Future with Open Source"
+  description="Open SaaS: Avoid vendor lock-in. Retain full data control, reduce costs, and gain a competitive edge with the smart alternative to traditional SaaS."
+>
+  <PageHero
+    eyebrow="Solutions / Open SaaS"
+    title="Open SaaS: Avoid Vendor Lock-In"
+    lead="Leverage the power of Open SaaS to retain full data control, reduce costs, and gain a competitive edge. Discover why Open SaaS is the smart alternative to traditional SaaS."
+  >
+    <div class="hero__cta">
+      <a href="/contact-us/" class="btn btn--coral">Contact Us</a>
+    </div>
+  </PageHero>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Full Control, Zero Compromise</p>
+      <h2>Build Your Business With Open SaaS</h2>
+      <p class="lead">
+        Don&rsquo;t train your competitors&rsquo; AI on a third-party platform.
+        Instead, use your own private data to your advantage.
+      </p>
+      <p class="muted intro__body">
+        Discover the freedom of Open SaaS — retain full ownership of your data,
+        avoid vendor lock-in, and leverage proprietary insights for a competitive
+        edge. With Open SaaS, you get the best of open source flexibility paired
+        with enterprise-grade scalability and support, outperforming traditional
+        SaaS models in every way.
+      </p>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">Traditional SaaS vs. Open SaaS</p>
+      <h2>See the difference, feature by feature</h2>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">Traditional SaaS AI Product</th>
+              <th scope="col">OpenTeams Open SaaS AI/ML</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparison.map((row) => (
+              <tr>
+                <th scope="row">{row.feature}</th>
+                <td>{row.saas}</td>
+                <td class="compare__open">{row.open}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">FAQs</p>
+      <h2>Your Open SaaS questions, answered</h2>
+      <div class="faqs">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p class="muted">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>Own Your Future with Open Source</h2>
+      <p class="lead" style="margin-inline:auto">
+        Retain full data control, reduce costs, and gain a competitive edge.
+        Let&rsquo;s map your path off vendor lock-in.
+      </p>
+      <a href="/contact-us/" class="btn btn--primary">Contact Us</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+
+  .intro__body { max-width: 66ch; margin-top: 1.5rem; }
+
+  .table-wrap { margin-top: 2.5rem; overflow-x: auto; }
+  .compare {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    background: var(--ot-white);
+    border: 1px solid var(--ot-border);
+    border-radius: var(--ot-radius);
+    overflow: hidden;
+  }
+  .compare th,
+  .compare td {
+    text-align: left;
+    padding: 1rem 1.15rem;
+    border-bottom: 1px solid var(--ot-border);
+    vertical-align: top;
+    font-size: 0.95rem;
+  }
+  .compare thead th {
+    font-family: var(--ot-font-display);
+    color: var(--ot-navy-900);
+    background: var(--ot-lavender-50);
+  }
+  .compare tbody th {
+    font-family: var(--ot-font-display);
+    color: var(--ot-navy-900);
+    font-weight: 600;
+  }
+  .compare td { color: var(--ot-ink-500); }
+  .compare__open { color: var(--ot-ink-900); }
+  .compare tbody tr:last-child th,
+  .compare tbody tr:last-child td { border-bottom: none; }
+
+  .faqs { margin-top: 2.5rem; max-width: 72ch; }
+  .faq {
+    border: 1px solid var(--ot-border);
+    border-radius: var(--ot-radius-sm);
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    background: var(--ot-white);
+  }
+  .faq summary {
+    font-family: var(--ot-font-display);
+    font-weight: 600;
+    color: var(--ot-navy-900);
+    cursor: pointer;
+    list-style-position: inside;
+  }
+  .faq[open] summary { margin-bottom: 0.75rem; }
+  .faq p { margin: 0; }
+
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .final-cta .btn { margin-top: 1.5rem; }
+</style>

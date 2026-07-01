@@ -1,0 +1,165 @@
+---
+const columns = [
+  {
+    title: 'Company',
+    links: [
+      { label: 'AI/ML Products', href: '/ai-ml-products/' },
+      { label: 'AI Readiness', href: '/ai-readiness-assessment/' },
+      { label: 'Open SaaS', href: '/open-saas/' },
+      { label: 'About Us', href: '/about-us/' },
+      { label: 'Careers', href: '/careers/' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { label: 'OpenTeams Blog', href: '/blog/' },
+      { label: 'Engineering Blog', href: '/engineering-blog/' },
+      { label: 'Case Studies', href: '/case-studies/' },
+      { label: 'Press Room', href: '/press/' },
+    ],
+  },
+  {
+    title: 'Communities & Events',
+    links: [
+      { label: 'Communities', href: '/openteams-communities/' },
+      { label: 'Events', href: '/community-events/' },
+    ],
+  },
+  {
+    title: 'Partners',
+    links: [
+      { label: 'Quansight', href: 'https://quansight.com' },
+      { label: 'OT Incubator', href: '/openteams-communities/' },
+    ],
+  },
+];
+
+const socials = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/openteams' },
+  { label: 'X', href: 'https://x.com/OpenTeamsGlobal' },
+  { label: 'GitHub', href: 'https://github.com/openteams-ai' },
+  { label: 'YouTube', href: 'https://youtube.com/@openteams' },
+  { label: 'Medium', href: 'https://medium.com/openteams' },
+];
+---
+
+<footer class="site-footer section--dark">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <img src="/assets/openteams-white-horizontal.png" alt="OpenTeams" width="200" height="36" />
+        <p class="muted">Owned Intelligence. Built for Enterprise.</p>
+        <form class="newsletter" onsubmit="return false" aria-label="Newsletter signup">
+          <label for="nl-email" class="sr-only">Email address</label>
+          <input id="nl-email" type="email" placeholder="you@company.com" autocomplete="email" />
+          <button type="submit" class="btn btn--coral">Subscribe</button>
+        </form>
+        <ul class="socials">
+          {socials.map((s) => (
+            <li><a href={s.href} rel="noopener noreferrer">{s.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="site-footer__cols">
+        {columns.map((col) => (
+          <div class="footer-col">
+            <h4>{col.title}</h4>
+            <ul>
+              {col.links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="muted">© OpenTeams® 2026 All Rights Reserved.</p>
+      <ul class="legal">
+        <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+        <li><a href="/privacy-policy/">Privacy</a></li>
+        <li><a href="/terms-of-service/">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { padding-block: clamp(3rem, 6vw, 5rem); }
+  .site-footer__top {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+  .site-footer__brand img { margin-bottom: 1rem; }
+  .newsletter {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1.25rem 0 1.5rem;
+    max-width: 380px;
+  }
+  .newsletter input {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    border-radius: var(--ot-radius-pill);
+    border: 1px solid var(--ot-border-dark);
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font: inherit;
+  }
+  .newsletter input::placeholder { color: rgba(255, 255, 255, 0.45); }
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+  }
+  .socials a { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; }
+  .socials a:hover { color: #fff; }
+
+  .site-footer__cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .footer-col h4 {
+    font-family: var(--ot-font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ot-coral-500);
+    margin-bottom: 1rem;
+  }
+  .footer-col ul { list-style: none; display: grid; gap: 0.6rem; }
+  .footer-col a { color: rgba(255, 255, 255, 0.75); font-size: 0.92rem; }
+  .footer-col a:hover { color: #fff; }
+
+  .site-footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--ot-border-dark);
+  }
+  .legal { display: flex; gap: 1.5rem; list-style: none; }
+  .legal a { color: rgba(255, 255, 255, 0.7); font-size: 0.85rem; }
+  .legal a:hover { color: #fff; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+
+  @media (max-width: 900px) {
+    .site-footer__top { grid-template-columns: 1fr; }
+    .site-footer__cols { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .site-footer__cols { grid-template-columns: 1fr; }
+  }
+</style>

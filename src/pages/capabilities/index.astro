@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const capabilities = [
+  {
+    tag: '01 / Foundation',
+    title: 'Nebari',
+    body: 'The open-source foundation for data science and AI infrastructure. Deploy models, data, and workflows inside your own environment — the platform trusted from biotech to defense.',
+    cta: 'Explore Nebari',
+    href: '/nebari/',
+  },
+  {
+    tag: '02 / Security',
+    title: 'Python Security Remediation',
+    body: 'Harden the open-source Python supply chain your AI runs on. We find, prioritize, and remediate vulnerabilities across your dependencies so your stack stays auditable and compliant.',
+    cta: 'Explore remediation',
+    href: '/python-security-remediation/',
+  },
+  {
+    tag: '03 / Products',
+    title: 'AI/ML Products',
+    body: 'From the free Collab desktop app to the enterprise Intelligence Hub (Nexus), owned-intelligence products that bring private, controllable AI to everyday work.',
+    cta: 'Explore products',
+    href: '/ai-ml-products/',
+  },
+  {
+    tag: '04 / Assessment',
+    title: 'AI Readiness Assessment',
+    body: 'A structured evaluation of your data, infrastructure, and team — mapping the shortest, lowest-risk path from where you are today to production AI you own.',
+    cta: 'Explore the assessment',
+    href: '/ai-readiness-assessment/',
+  },
+  {
+    tag: '05 / Delivery',
+    title: 'Open SaaS',
+    body: 'The support and rigor of enterprise SaaS, delivered on open source you control. Managed outcomes without the lock-in — the value compounds to your organization, not a vendor.',
+    cta: 'Explore Open SaaS',
+    href: '/open-saas/',
+  },
+  {
+    tag: '06 / Applied AI',
+    title: 'Ad Analytics · AI Logo Detection',
+    body: 'A purpose-built computer-vision capability that detects brand logos across video and imagery at scale — turning raw ad inventory into measurable, ownable analytics.',
+    cta: 'Explore ad analytics',
+    href: '/ai-logo-detection-ad-analytics/',
+  },
+];
+---
+
+<BaseLayout
+  title="Capabilities"
+  description="From the open-source Nebari foundation to applied AI, explore the OpenTeams capabilities that help your organization build AI it actually owns."
+>
+  <PageHero
+    eyebrow="Capabilities"
+    title="Everything you need to build AI you own."
+    lead="A modular set of capabilities — from the open-source foundation to enterprise products and applied AI — designed to keep the value inside your organization, not someone else’s subscription."
+  />
+
+  <!-- Capability grid -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Explore Capabilities</p>
+      <h2>Composable by design.</h2>
+      <p class="lead">
+        Adopt one capability or the whole stack. Each is built on open source,
+        deployed in your environment, and supported by the engineers who built
+        the foundations of modern AI.
+      </p>
+      <div class="grid grid--3 caps">
+        {capabilities.map((c) => (
+          <a href={c.href} class="card cap-card">
+            <p class="card__num">{c.tag}</p>
+            <h3>{c.title}</h3>
+            <p class="muted">{c.body}</p>
+            <span class="cap-card__link">{c.cta} &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why it fits together -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">Why OpenTeams®</p>
+      <h2>One stack. One owner. You.</h2>
+      <p class="lead">
+        Off-the-shelf AI leaves you renting the layer where your intelligence
+        lives. Our capabilities are designed to be owned — so every model,
+        workflow, and dataset you build compounds in value for your organization.
+      </p>
+      <div class="center" style="margin-top:2rem">
+        <a href="/owned-intelligence-assessment/" class="btn btn--coral">Get Your Owned-Intelligence Score</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>Not sure which capability fits?</h2>
+      <p class="lead" style="margin-inline:auto">
+        Tell us what you’re trying to own and we’ll help you map the right path —
+        no lock-in required.
+      </p>
+      <a href="/contact-us/" class="btn btn--primary" style="margin-top:1.5rem">Talk to Us</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .caps { margin-top: 2.5rem; }
+  .cap-card {
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+  }
+  .cap-card:hover { border-color: var(--ot-coral-500); }
+  .cap-card .muted { flex: 1; }
+  .cap-card__link {
+    font-family: var(--ot-font-display);
+    font-weight: 600;
+    color: var(--ot-blue-500);
+    margin-top: 1rem;
+  }
+
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+</style>

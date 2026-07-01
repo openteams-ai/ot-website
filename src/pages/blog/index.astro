@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const featured = {
+  title: 'The State of AI Infrastructure',
+  body: 'Why most companies extract nothing from artificial intelligence, and what the ones who do are doing differently.',
+};
+
+const posts = [
+  {
+    date: 'June 15, 2026',
+    title: 'What Hardware Do I Get!?',
+    body: 'A grounded look at what infrastructure actually powers owned intelligence — and how to size it for your organization.',
+  },
+  {
+    date: 'April 9, 2026',
+    title: 'Control',
+    body: 'Ownership isn’t a feature you buy. It’s the difference between renting access and controlling the layer where your AI runs.',
+  },
+  {
+    date: 'March 6, 2025',
+    title: 'AI & Defense Experts to Lead OpenTeams’ National Defense Summit During SXSW',
+    body: 'Leaders in national defense and open-source AI gather to chart a path toward transparent, controllable systems.',
+  },
+  {
+    date: 'June 26, 2025',
+    title: 'They Didn’t Want a Vendor. They Wanted Ownership.',
+    body: 'How one team stopped paying to build someone else’s asset and started compounding value inside their own environment.',
+  },
+  {
+    date: 'October 2, 2025',
+    title: 'My Mom Is Scared of AI. She’s Scared of the Wrong Thing.',
+    body: 'The real risk isn’t the technology. It’s dependence on systems you can’t inspect, audit, or own.',
+  },
+  {
+    date: 'December 3, 2024',
+    title: 'What Are Python Asterisk and Slash Special Parameters For?',
+    body: 'A practical dive into positional-only and keyword-only parameters — small syntax with a big impact on readable APIs.',
+  },
+];
+---
+
+<BaseLayout
+  title="Inference & Signals | The AI Journal for Decision-Makers"
+  description="Break through the noise. Inference & Signals gives you the edge with insights that matter in open source AI."
+>
+  <PageHero
+    eyebrow="Inference & Signals"
+    title="The AI Journal for Decision-Makers"
+    lead="Get deep insights, real stories, and expert analysis designed for thought leaders, developers, and executives."
+  >
+    <div class="hero__cta">
+      <a href="#" class="btn btn--coral">Subscribe</a>
+    </div>
+  </PageHero>
+
+  <!-- Featured -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Featured</p>
+      <a href="#" class="card featured-card">
+        <h2>{featured.title}</h2>
+        <p class="muted">{featured.body}</p>
+        <span class="featured-card__link">Read More &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Latest -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">Latest</p>
+      <h2>Read the latest insights</h2>
+      <div class="grid grid--3 posts">
+        {posts.map((p) => (
+          <a href="#" class="card post-card">
+            <p class="card__num">{p.date}</p>
+            <h3>{p.title}</h3>
+            <p class="muted">{p.body}</p>
+            <span class="post-card__link">Read More &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>Never Miss a Signal</h2>
+      <p class="lead" style="margin-inline:auto">
+        Break through the noise. Get the insights that matter in open source AI,
+        straight to your inbox.
+      </p>
+      <a href="/contact-us/" class="btn btn--primary">Talk to Us</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.75rem; }
+
+  .posts { margin-top: 2.5rem; }
+
+  .featured-card {
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    margin-top: 1.5rem;
+  }
+  .featured-card:hover { border-color: var(--ot-coral-500); }
+  .featured-card__link,
+  .post-card__link {
+    font-family: var(--ot-font-display);
+    font-weight: 600;
+    color: var(--ot-coral-500);
+    margin-top: 1rem;
+  }
+
+  .post-card { display: flex; flex-direction: column; color: inherit; }
+  .post-card:hover { border-color: var(--ot-coral-500); }
+  .post-card .muted { flex: 1; }
+
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .final-cta .btn { margin-top: 1.5rem; }
+</style>

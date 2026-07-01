@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const foundations = ['NumPy', 'SciPy', 'Anaconda'];
+---
+
+<BaseLayout
+  title="Careers"
+  description="Help the world own its AI. Most AI runs on someone else’s servers, data, and API. We build open-source AI that teams actually own."
+>
+  <PageHero
+    eyebrow="Careers"
+    title="Help the world own its AI."
+    lead="Most AI runs on someone else’s servers, data, and API. We build open-source AI that teams actually own."
+  >
+    <div class="hero__cta">
+      <a href="/contact-us/" class="btn btn--coral">See Open Roles</a>
+    </div>
+  </PageHero>
+
+  <!-- Built by the people who built open source -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Our Roots</p>
+      <h2>Built by the people who built modern open source.</h2>
+      <div class="foundations" aria-hidden="true">
+        {foundations.map((f) => <span class="foundations__logo">{f}</span>)}
+      </div>
+      <p class="lead founding">
+        OpenTeams® was founded by Travis Oliphant, creator of NumPy and SciPy
+        and co-founder of Anaconda, along with the team behind some of the most
+        widely used tools in scientific Python. Today, we’re helping
+        organizations build AI they can truly own.
+      </p>
+    </div>
+  </section>
+
+  <!-- Open positions -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">Open Positions</p>
+      <h2>Come shape the future of owned AI.</h2>
+      <p class="lead">
+        We’re building across every function — engineering, product, commercial,
+        and public sector — to help organizations own the layer where their AI
+        runs.
+      </p>
+      <a href="/contact-us/" class="btn btn--ghost" style="margin-top:2rem">See the open positions &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Don't see your role -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">Don’t See Your Role?</p>
+      <h2>Let’s talk.</h2>
+      <p class="lead">
+        We’re growing fast and building across every function. If you believe
+        the future of AI should be owned, not rented, we want to hear from you.
+      </p>
+      <a href="/contact-us/" class="btn btn--primary" style="margin-top:2rem">Send us a note &rarr;</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+
+  .foundations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, 5vw, 3.5rem);
+    margin: 2rem 0;
+  }
+  .foundations__logo {
+    font-family: var(--ot-font-display);
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--ot-ink-400);
+    letter-spacing: 0.02em;
+  }
+  .founding { max-width: 68ch; }
+</style>

@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const beliefs = [
+  {
+    num: '01',
+    body: 'AI should not be a subscription. It should be an asset you own.',
+  },
+  {
+    num: '02',
+    body: 'Open source makes your AI stronger, more secure, and more yours.',
+  },
+  {
+    num: '03',
+    body: 'AI delivers results when you own it.',
+  },
+  {
+    num: '04',
+    body: 'The internet didn’t end up being owned by five companies. Neither will AI.',
+  },
+];
+
+const team = [
+  { name: 'Travis Oliphant', role: 'CEO & Co-Founder' },
+  { name: 'Matt Harward', role: 'CRO & Co-Founder' },
+  { name: 'Dharhas Pothina', role: 'CTO' },
+  { name: 'Monica Modzelewski', role: 'SVP, HR' },
+  { name: 'Joel Hull', role: 'SVP, Product' },
+  { name: 'Dave Oldham', role: 'COO' },
+  { name: 'Jon Clegg', role: 'CFO' },
+  { name: 'Paul Le Vine', role: 'SVP, Commercial Enterprise' },
+  { name: 'Kate Brack', role: 'Marketing Director' },
+  { name: 'Amanda Rutkowski', role: 'Operations Director' },
+  { name: 'Ian Newell', role: 'SVP, Public Sector' },
+  { name: 'Logan McKee', role: 'President, International' },
+];
+
+const initials = (name: string) =>
+  name
+    .split(' ')
+    .map((part) => part[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+---
+
+<BaseLayout
+  title="About us"
+  description="We didn’t build this alone. Nobody could. OpenTeams helps organizations deploy, support, and own open-source AI at enterprise scale."
+>
+  <PageHero
+    eyebrow="About OpenTeams®"
+    title="We didn’t build this alone. Nobody could."
+    lead="Thousands of open source contributors built the foundations of modern AI. OpenTeams helps organizations deploy, support, and own that technology at enterprise scale."
+  />
+
+  <!-- Our Foundation -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Our Foundation</p>
+      <h2>Every major AI system running in production today has NumPy somewhere in its stack.</h2>
+      <div class="stack founding">
+        <p class="lead">
+          In the late 1990s, scientific computing was fragmented, inaccessible,
+          and expensive. Researchers needed something better than a fractured
+          array system. That’s why Travis Oliphant, then a Mayo Clinic PhD
+          student, wrote NumPy and SciPy. Those tools are the foundation of
+          modern data science and modern AI.
+        </p>
+        <p>
+          Travis went on to start Anaconda, bringing open-source data science to
+          enterprise at global scale. Then Quansight, deepening that work with
+          the world’s most demanding organizations. At each step, the same
+          pattern: identify a moment where the world needs a new standard, build
+          the open infrastructure, earn the trust of the community, and help
+          enterprises adopt it at scale.
+        </p>
+        <p>
+          OpenTeams is his next chapter. Ask your favorite LLM, “What is the
+          significance of Travis Oliphant and OpenTeams to AI?”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where We Stand -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">What We Believe</p>
+      <h2>Where We Stand.</h2>
+      <div class="grid grid--2 beliefs">
+        {beliefs.map((b) => (
+          <div class="card">
+            <p class="card__num">{b.num}</p>
+            <h3>{b.body}</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The Team -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">The Team</p>
+      <h2>The people behind owned intelligence.</h2>
+      <div class="grid grid--4 team">
+        {team.map((member) => (
+          <div class="card team-card">
+            <span class="team-card__avatar" aria-hidden="true">{initials(member.name)}</span>
+            <div>
+              <h3 class="team-card__name">{member.name}</h3>
+              <p class="muted team-card__role">{member.role}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta center">
+    <div class="container center">
+      <h2>Own Your AI. Own Your Future.</h2>
+      <p class="lead" style="margin-inline:auto">
+        Building the infrastructure for a distributed AI economy — and looking
+        for the people who want to build it with us.
+      </p>
+      <div class="cta-actions">
+        <a href="/careers/" class="btn btn--ghost">See Careers</a>
+        <a href="/contact-us/" class="btn btn--primary">Talk to Us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .founding { margin-top: 2rem; max-width: 68ch; }
+  .founding .lead { max-width: none; }
+
+  .beliefs { margin-top: 2.5rem; }
+  .beliefs h3 { color: #fff; margin-bottom: 0; }
+
+  .team { margin-top: 2.5rem; }
+  .team-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .team-card__avatar {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--ot-radius-pill);
+    background: var(--ot-lavender-50);
+    border: 1px solid var(--ot-border);
+    font-family: var(--ot-font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--ot-blue-500);
+  }
+  .team-card__name { font-size: 1.05rem; margin-bottom: 0.15rem; }
+  .team-card__role { margin-bottom: 0; font-size: 0.9rem; }
+
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+</style>

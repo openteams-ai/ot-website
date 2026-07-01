@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenTeams — Under Maintenance</title>
+    <meta name="description" content="OpenTeams is temporarily down for scheduled maintenance. We'll be back shortly." />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  </head>
+  <body class="maint">
+    <main class="maint__card">
+      <img class="maint__logo" src="/assets/openteams-horizontal.png" alt="OpenTeams" width="320" />
+      <div class="maint__status"><span class="maint__dot"></span> Maintenance in progress</div>
+      <h1>We’ll be right back.</h1>
+      <p class="lead" style="margin-inline:auto">
+        OpenTeams is temporarily down for maintenance. We’re making improvements
+        and expect to be back online shortly. Thanks for your patience.
+      </p>
+      <p class="muted">Need to reach us? Email <a href="mailto:info@openteams.com">info@openteams.com</a>.</p>
+    </main>
+
+    <style>
+      .maint {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2.5rem 1.25rem;
+        background:
+          radial-gradient(ellipse 80% 70% at 18% 8%, rgba(77, 117, 254, 0.1), transparent 55%),
+          radial-gradient(ellipse 70% 60% at 92% 100%, rgba(255, 138, 105, 0.1), transparent 55%),
+          linear-gradient(180deg, var(--ot-lavender-50), var(--ot-white));
+      }
+      .maint__card {
+        width: 100%;
+        max-width: 600px;
+        background: #fff;
+        border: 1px solid var(--ot-border);
+        border-radius: var(--ot-radius-2xl);
+        box-shadow: var(--ot-shadow-card);
+        padding: 3.5rem 3rem;
+        text-align: center;
+      }
+      .maint__logo { width: 320px; max-width: 78%; margin: 0 auto 2rem; }
+      .maint__status {
+        display: inline-flex; align-items: center; gap: 0.55rem;
+        font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+        text-transform: uppercase; color: var(--ot-navy-800);
+        background: rgba(77, 117, 254, 0.1);
+        padding: 0.45rem 0.9rem; border-radius: var(--ot-radius-pill);
+        margin-bottom: 1.25rem;
+      }
+      .maint__dot {
+        width: 9px; height: 9px; border-radius: 50%;
+        background: var(--ot-amber-500); animation: mpulse 1.8s infinite;
+      }
+      @keyframes mpulse {
+        0% { box-shadow: 0 0 0 0 rgba(250, 169, 68, 0.55); }
+        70% { box-shadow: 0 0 0 10px rgba(250, 169, 68, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(250, 169, 68, 0); }
+      }
+    </style>
+  </body>
+</html>

@@ -138,10 +138,12 @@ Recreate `src/pages/index.astro` composed of these sections:
 7. docs: update README; add content-map.md
 8. chore: responsive polish + a11y pass
 
-## Open questions
+## Decisions (resolved)
 
-- Should interior pages (Blog, Case Studies, About) be stubbed as routes now, or
-  left as `#` until content exists? (Plan assumes stubbed placeholders.)
-- Tailwind vs. hand-authored CSS — plan assumes hand-authored to match the
-  existing `styles.css`. Confirm before scaffolding if a design system is desired.
-- Where will this deploy (Netlify / Vercel / S3+CloudFront)? Affects adapter/config.
+- **Interior pages:** recreate from the Wayback snapshots where possible (About,
+  Nebari, AI/ML Products, Case Studies, Blog, Careers, Press, legal, etc.). Three
+  pages had no snapshot (`capabilities`, `python-security-remediation`,
+  `owned-intelligence-assessment`) and are written to match site messaging.
+- **Styling:** hand-authored CSS with design tokens (no Tailwind).
+- **Deploy:** Cloudflare Pages (already connected). `output: 'static'`, build
+  `npm run build`, output `dist`, Node 20+.

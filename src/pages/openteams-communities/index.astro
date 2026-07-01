@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const criteria = [
+  'Technical founders, CTOs & CIOs of companies (with at least seed-stage funding) building with open source technologies.',
+  'Software architects and senior developers with 5+ years of experience using open source to build enterprise-level solutions.',
+  'Academics with 5+ years of experience contributing to open source.',
+  'Open source educators with 5+ years of experience.',
+  'Active open source core developers / maintainers with 3+ years of experience in software development.',
+  'Creators of well-known and widely adopted open source libraries.',
+];
+---
+
+<BaseLayout
+  title="Communities"
+  description="Communities powered by OpenTeams. We invest in the Open Source Architect (OSA) Community because collaboration drives innovation."
+>
+  <PageHero
+    eyebrow="Communities Powered by OpenTeams"
+    title="Where open source leaders build together."
+    lead="At OpenTeams, we believe collaboration drives innovation. It is through the collective sharing of ideas, experiences, and expertise that we unlock the potential for groundbreaking technical solutions."
+  />
+
+  <!-- Why we invest -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Why We Invest</p>
+      <h2>Communities and ecosystem building.</h2>
+      <p class="lead">
+        That’s why we are actively building the Open Source Architect (OSA)
+        Community — an invitation-only group for seasoned software architects
+        who are passionate about open source technology.
+      </p>
+    </div>
+  </section>
+
+  <!-- Qualification criteria -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">About the OSA Community</p>
+      <h2>Do you qualify for membership?</h2>
+      <p class="lead">
+        To qualify, candidates must meet at least one of the following criteria.
+      </p>
+      <div class="grid grid--3 criteria">
+        {criteria.map((c, i) => (
+          <div class="card">
+            <p class="card__num">{String(i + 1).padStart(2, '0')}</p>
+            <p class="muted">{c}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Request to join -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">Request to Join</p>
+      <h2>Join the OSA Community.</h2>
+      <p class="lead">
+        Submit your application. We’ll review each one carefully. If it’s a fit,
+        you’ll get an invite to join the space where it all happens.
+      </p>
+      <div class="join__cta">
+        <a href="/contact-us/" class="btn btn--coral">Submit Your Application</a>
+        <a href="https://www.linkedin.com/" class="btn btn--ghost">Follow the OSA Community on LinkedIn</a>
+      </div>
+      <p class="muted join__note">
+        Attend an upcoming event or watch a recent one!{' '}
+        <a href="/community-events/">See our events &rarr;</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>Building the Infrastructure for a Distributed AI Economy</h2>
+      <p class="lead" style="margin-inline:auto">
+        Communities are how we keep open source — and owned intelligence —
+        moving forward. Let’s build it together.
+      </p>
+      <a href="/contact-us/" class="btn btn--primary">Talk to Us</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .criteria { margin-top: 2.5rem; }
+  .join__cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+  .join__note { margin-top: 1.5rem; }
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .final-cta .btn { margin-top: 1.5rem; }
+</style>

@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const studies = [
+  {
+    tag: '01 / BioTech',
+    title: 'Jupyter Everywhere in the Classroom',
+    body: 'A 501(c)(3) nonprofit improving data literacy and math outcomes in underserved schools went from a 2% AP Statistics pass rate to teaching data science with Jupyter across the classroom.',
+  },
+  {
+    tag: '02 / Ad Analytics',
+    title: 'AI-Powered Logo Detection for Ad Analytics',
+    body: 'See how OpenTeams freed an ad analytics firm from black-box SaaS. We built a custom AI logo detection solution using PyTorch and AWS for total control and scale.',
+  },
+  {
+    tag: '03 / Government · JATIC / DoD',
+    title: 'Open Source Isn’t the Real Risk in National Defense',
+    body: 'Government contracts aren’t immune to AI hype. Most defense teams face the same wall: slow-moving, locked-in systems built by vendors who sell mystery, not control.',
+  },
+  {
+    tag: '04 / AI Company',
+    title: 'How a Fast-Growing AI Company Rebuilt from the Stack Up',
+    body: 'This team had built something remarkable: intelligent agents that could parse documents in seconds, respond around the clock, and surface insights from oceans of unstructured data — then rebuilt the foundation to own it.',
+  },
+  {
+    tag: '05 / Investments',
+    title: 'Inside a $1T Firm’s Fight to Build Real AI Infrastructure',
+    body: 'The biggest threat to your AI rollout isn’t the tech. It’s the gap between vision and execution. We built an auditable system this investment firm truly owned.',
+  },
+  {
+    tag: '06 / Energy',
+    title: 'Open Source Looks Risky. That’s Why It Works',
+    body: 'The codebase behind half the web is open source — OpenSSL guards passwords, medical records, and critical infrastructure. A lean energy team got the exact owned solution they needed.',
+  },
+];
+
+const outcomes = [
+  {
+    num: '01',
+    title: 'AI Readiness',
+    body: 'We assess where you are and chart the path to production-grade, owned intelligence.',
+  },
+  {
+    num: '02',
+    title: 'Open SaaS',
+    body: 'Transparent, inspectable systems your team can audit, extend, and truly control.',
+  },
+  {
+    num: '03',
+    title: 'Ownership',
+    body: 'Every model, workflow, and data source stays inside your environment — and grows more valuable over time.',
+  },
+];
+---
+
+<BaseLayout
+  title="Case Studies"
+  description="How top teams reclaimed their AI stack with OpenTeams."
+>
+  <PageHero
+    eyebrow="Case Studies"
+    title="OpenTeams Case Studies"
+    lead="How top teams reclaimed their AI stack."
+  >
+    <div class="hero__cta">
+      <a href="/contact-us/" class="btn btn--coral">Book a Discovery Call</a>
+    </div>
+  </PageHero>
+
+  <!-- Studies grid -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">In Production</p>
+      <h2>Owned AI, in the real world.</h2>
+      <div class="grid grid--3 studies">
+        {studies.map((s) => (
+          <a href="#" class="card case-card">
+            <p class="card__num">{s.tag}</p>
+            <h3>{s.title}</h3>
+            <p class="muted">{s.body}</p>
+            <span class="case-card__link">Read More &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What you'll see -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">The Pattern</p>
+      <h2>What You’ll See in These Stories</h2>
+      <div class="grid grid--3 outcomes">
+        {outcomes.map((o) => (
+          <div class="why__item">
+            <span class="why__num">{o.num}</span>
+            <div>
+              <h3>{o.title}</h3>
+              <p class="muted">{o.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>Your Story Starts Here</h2>
+      <p class="lead" style="margin-inline:auto">
+        We build your system, train your team, and support you as long as needed —
+        no lock-in required.
+      </p>
+      <a href="/contact-us/" class="btn btn--primary">Talk to Us</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.75rem; }
+
+  .studies, .outcomes { margin-top: 2.5rem; }
+
+  .case-card { display: flex; flex-direction: column; color: inherit; }
+  .case-card:hover { border-color: var(--ot-coral-500); }
+  .case-card .muted { flex: 1; }
+  .case-card__link {
+    font-family: var(--ot-font-display);
+    font-weight: 600;
+    color: var(--ot-coral-500);
+    margin-top: 1rem;
+  }
+
+  .why__item { display: flex; gap: 1.25rem; align-items: flex-start; }
+  .why__num {
+    font-family: var(--ot-font-mono);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--ot-coral-500);
+    line-height: 1;
+  }
+
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .final-cta .btn { margin-top: 1.5rem; }
+</style>

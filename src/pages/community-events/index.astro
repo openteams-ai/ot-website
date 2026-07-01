@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+// Live event listings are managed in our events calendar. When no upcoming
+// events are scheduled, we point the community to recent recordings.
+const upcomingEvents: { title: string; date: string; blurb: string; href: string }[] = [];
+---
+
+<BaseLayout
+  title="Community Events"
+  description="Sign up for an upcoming OpenTeams community event or check out recent webinars. Fostering connections between open source leaders, practitioners, and enthusiasts."
+>
+  <PageHero
+    eyebrow="OpenTeams Community Events"
+    title="Connect with the open source community."
+    lead="Sign up for an upcoming community event or check out recent webinars — fostering connections between open source leaders, practitioners, and enthusiasts."
+  />
+
+  <!-- Upcoming events -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Upcoming</p>
+      <h2>What’s next.</h2>
+      {upcomingEvents.length > 0 ? (
+        <div class="grid grid--3 events">
+          {upcomingEvents.map((e, i) => (
+            <div class="card event-card">
+              <p class="card__num">{String(i + 1).padStart(2, '0')} · {e.date}</p>
+              <h3>{e.title}</h3>
+              <p class="muted">{e.blurb}</p>
+              <a href={e.href} class="event-card__link">Register &rarr;</a>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">
+          <p class="lead">There are no upcoming events scheduled right now.</p>
+          <p class="muted">
+            Check back soon — new webinars and community sessions are added
+            regularly. In the meantime, catch up on a recent event below.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Watch a recent event -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">Watch a Recent Event</p>
+      <h2>Catch up on demand.</h2>
+      <p class="lead">
+        Head to our YouTube channel to see what the community has been up to —
+        talks, panels, and demos from open source leaders and practitioners.
+      </p>
+      <a href="https://www.youtube.com/" class="btn btn--coral">Visit our YouTube channel</a>
+    </div>
+  </section>
+
+  <!-- Past events -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">Past Events</p>
+      <h2>An archive of the conversation.</h2>
+      <p class="lead">
+        Our past sessions bring together technical founders, architects,
+        maintainers, and open source enthusiasts. Recordings are published to
+        our YouTube channel as they become available.
+      </p>
+      <a href="https://www.youtube.com/" class="btn btn--ghost">Browse past recordings</a>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>Want to be part of the community?</h2>
+      <p class="lead" style="margin-inline:auto">
+        Join the Open Source Architect Community, or reach out to host or
+        co-sponsor an upcoming event with us.
+      </p>
+      <div class="cta__row">
+        <a href="/openteams-communities/" class="btn btn--primary">Explore Communities</a>
+        <a href="/contact-us/" class="btn btn--ghost">Talk to Us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .events { margin-top: 2.5rem; }
+  .event-card { display: flex; flex-direction: column; }
+  .event-card .muted { flex: 1; }
+  .event-card__link {
+    font-family: var(--ot-font-display);
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  .empty-state {
+    margin-top: 2rem;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border: 1px dashed var(--ot-border);
+    border-radius: var(--ot-radius);
+    background: var(--ot-cloud);
+  }
+  .empty-state .lead { max-width: none; margin-bottom: 0.75rem; }
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .cta__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+</style>

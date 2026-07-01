@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const problems = [
+  {
+    title: 'Your stack is mostly code you didn’t write.',
+    body: 'A typical Python application pulls in hundreds of transitive open-source dependencies. Every one of them is a potential entry point — and most teams have no clear view of what they’re actually running.',
+  },
+  {
+    title: 'CVEs pile up faster than teams can triage.',
+    body: 'New vulnerabilities are disclosed against popular packages every week. Scanners flag them by the thousand, but a raw list of alerts isn’t a remediation plan — it’s noise that stalls releases.',
+  },
+  {
+    title: 'A patch can break more than it fixes.',
+    body: 'Bumping a vulnerable dependency often cascades through your build. Without maintainer-level knowledge of the library, an upgrade can quietly break production instead of securing it.',
+  },
+  {
+    title: 'Compliance and auditors want proof.',
+    body: 'SBOMs, provenance, and documented remediation are now table stakes for enterprise and regulated environments. Ad-hoc fixes don’t produce the evidence trail your security team needs.',
+  },
+];
+
+const steps = [
+  {
+    stage: 'Step 01',
+    title: 'Assess & Map Your Dependencies',
+    body: 'We build a complete inventory of your Python and open-source dependency tree — direct and transitive — and generate an SBOM. Then we correlate it against known vulnerabilities to separate real exposure from scanner noise.',
+  },
+  {
+    stage: 'Step 02',
+    title: 'Prioritize & Remediate',
+    body: 'Our engineers triage by exploitability and impact, then remediate at the source: patching, upgrading, or backporting fixes with the maintainer-level knowledge to keep your build stable. Where a fix doesn’t exist upstream, we contribute it.',
+  },
+  {
+    stage: 'Step 03',
+    title: 'Verify & Maintain',
+    body: 'We validate every fix against your test suite, document the remediation for your auditors, and stand up continuous monitoring so new vulnerabilities are caught and closed before they reach production.',
+  },
+];
+
+const why = [
+  {
+    num: '01',
+    title: 'We maintain the libraries you depend on',
+    body: 'OpenTeams works with the people behind NumPy, SciPy, and the wider PyData ecosystem. When a fix belongs upstream, we can make it happen — not just pin a workaround.',
+  },
+  {
+    num: '02',
+    title: 'Remediation, not just detection',
+    body: 'Scanners tell you what’s wrong. We fix it — with engineers who understand the code well enough to patch without breaking your application.',
+  },
+  {
+    num: '03',
+    title: 'Built for compliance and sovereignty',
+    body: 'SBOMs, documented provenance, and a clear remediation trail that stands up to auditors and regulators — with your code and data staying inside your environment.',
+  },
+  {
+    num: '04',
+    title: 'Open source DNA, enterprise delivery',
+    body: 'You get the transparency and durability of open source paired with the rigor, support, and accountability an enterprise security program requires.',
+  },
+];
+---
+
+<BaseLayout
+  title="Python Security Remediation | OpenTeams"
+  description="Identify and remediate security vulnerabilities in your Python and open-source dependencies — with the engineers who maintain the libraries you rely on."
+>
+  <PageHero
+    eyebrow="Service / Security"
+    title="Python Security Remediation"
+    lead="Find and fix the vulnerabilities hiding in your open-source dependencies — with the engineers who actually maintain the Python libraries your enterprise runs on."
+  >
+    <div class="hero__cta">
+      <a href="/contact-us/" class="btn btn--coral">Talk to Our Security Team</a>
+      <a href="/nebari/" class="btn btn--ghost">Explore Nebari</a>
+    </div>
+  </PageHero>
+
+  <!-- The Problem -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">The Problem</p>
+      <h2>Your biggest attack surface is code you didn’t write.</h2>
+      <p class="lead">
+        Modern Python applications are built on open source. That’s a strength —
+        until an unpatched dependency turns into an incident, a failed audit, or
+        a stalled release.
+      </p>
+      <div class="grid grid--2 problems">
+        {problems.map((p) => (
+          <div class="card">
+            <h3>{p.title}</h3>
+            <p class="muted">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">How It Works</p>
+      <h2>From alert fatigue to a verified fix.</h2>
+      <p class="lead">
+        A clear, three-step engagement that turns a wall of scanner alerts into
+        a stable, documented, and defensible dependency stack.
+      </p>
+      <div class="grid grid--3 steps">
+        {steps.map((s) => (
+          <div class="card">
+            <p class="card__num">{s.stage}</p>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why OpenTeams -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">Why OpenTeams&reg;</p>
+      <h2>The remediation partner with maintainer-level reach.</h2>
+      <div class="grid grid--2 why">
+        {why.map((w) => (
+          <div class="why__item">
+            <span class="why__num">{w.num}</span>
+            <div>
+              <h3>{w.title}</h3>
+              <p class="muted">{w.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>Secure Your Python Stack</h2>
+      <p class="lead" style="margin-inline:auto">
+        Get a clear picture of your open-source exposure and a plan to fix it —
+        without breaking what already works.
+      </p>
+      <a href="/contact-us/" class="btn btn--primary">Talk to Us</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+
+  .problems, .steps, .why { margin-top: 2.5rem; }
+
+  .why__item { display: flex; gap: 1.25rem; align-items: flex-start; }
+  .why__num {
+    font-family: var(--ot-font-mono);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--ot-coral-500);
+    line-height: 1;
+  }
+
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .final-cta .btn { margin-top: 1.5rem; }
+</style>

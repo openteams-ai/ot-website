@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const workshopOutcomes = [
+  {
+    num: '01',
+    title: 'Open SaaS AI Solutions',
+    body: 'Build your own proprietary AI model that uses your data for strategic advantage, solving the hardest problems in your industry.',
+  },
+  {
+    num: '02',
+    title: 'AI MVP Development',
+    body: 'Get an AI product that delivers actionable insights and the immense value of AI to your organization — usable on day one.',
+  },
+  {
+    num: '03',
+    title: 'People Development',
+    body: 'Your team learns how to use AI to solve problems. Then you step back and watch them turn pain points into success stories.',
+  },
+];
+
+const scorecardOutcomes = [
+  {
+    num: '01',
+    title: 'AI Readiness Assessment',
+    body: 'Know how each part of your organization is AI ready.',
+  },
+  {
+    num: '02',
+    title: 'State-of-the-Art Review',
+    body: 'A scorecard snapshot of your existing stack, including an AI SWOT assessment.',
+  },
+  {
+    num: '03',
+    title: 'Actionable Roadmap',
+    body: 'A deeper dive on opportunities for immediate impact and future areas for AI to transform your business.',
+  },
+];
+---
+
+<BaseLayout
+  title="AI Readiness Assessment"
+  description="Discover your AI readiness with OpenTeams. From transformation workshops to AI scorecards, we deliver actionable insights, MVPs, and strategic roadmaps to future-proof your business."
+>
+  <PageHero
+    eyebrow="AI Assessments"
+    title="Unlock Your Business’s AI Potential"
+    lead="Discover your AI readiness with OpenTeams. From transformation workshops to AI scorecards, we deliver actionable insights, MVPs, and strategic roadmaps to future-proof your business."
+  >
+    <div class="hero__cta">
+      <a href="/contact-us/" class="btn btn--coral">Book a Discovery Call</a>
+    </div>
+  </PageHero>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Your Path to AI</p>
+      <h2>Two options — on your terms.</h2>
+      <p class="lead">
+        Whether you’re just starting out or looking to sharpen an existing
+        practice, your path to AI starts with OpenTeams. Choose the engagement
+        that fits where you are today.
+      </p>
+    </div>
+  </section>
+
+  <!-- Option 1: Workshop -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">Option 1 · New to AI</p>
+      <h2>Transformation Workshop</h2>
+      <p class="lead">Explore. Learn. Do.</p>
+      <p class="muted how">
+        How it works: we send a facilitator and two world-class AI technologists
+        to you for a week. They brainstorm with your top people to identify your
+        hardest problems, then solve them with AI. We work with your team to
+        create an MVP solution and develop a roadmap for AI where it’s needed most.
+      </p>
+      <h3 class="sub">What to Expect</h3>
+      <div class="grid grid--3 outcomes">
+        {workshopOutcomes.map((o) => (
+          <div class="card">
+            <p class="card__num">{o.num}</p>
+            <h3>{o.title}</h3>
+            <p class="muted">{o.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why OpenTeams -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">Why Choose OpenTeams&reg;</p>
+      <h2>Full ownership. No lock-in.</h2>
+      <p class="lead">
+        Unlike traditional black-box SaaS, the Open SaaS model ensures full
+        ownership of your AI stack, avoiding vendor lock-in while optimizing for
+        scalability and innovation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Option 2: Scorecard -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Option 2 · Improve Your AI</p>
+      <h2>The AI Scorecard</h2>
+      <p class="lead">Evaluate. Learn. Do.</p>
+      <p class="muted how">
+        How it works: our team of world-class AI technologists get curious and
+        evaluate your company’s AI know-how, AI tools, and data stack. We’ll give
+        you a graded report card on how your systems match best-in-class AI so you
+        can identify areas for improvement, infuse AI know-how on your team, and
+        have a roadmap for what to do next. We won’t let you fall behind in the AI
+        race.
+      </p>
+      <div class="grid grid--3 outcomes">
+        {scorecardOutcomes.map((o) => (
+          <div class="card">
+            <p class="card__num">{o.num}</p>
+            <h3>{o.title}</h3>
+            <p class="muted">{o.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why it matters -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">Why It Matters</p>
+      <h2>Future-proof your company.</h2>
+      <p class="lead">
+        AI is dramatically cutting costs and improving value to customers. If
+        you’re not world-class at AI, you’ll become a dinosaur. With our AI
+        Scorecard, you’ll know how to future-proof your company and lead your
+        industry.
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>Ready to Get Started?</h2>
+      <p class="lead" style="margin-inline:auto">
+        Take the first step in your AI journey with OpenTeams.
+      </p>
+      <a href="/contact-us/" class="btn btn--primary">Book a Discovery Call</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .how { max-width: 68ch; margin-top: 1rem; }
+  .sub { margin-top: 2.5rem; }
+  .outcomes { margin-top: 2.5rem; }
+
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .final-cta .btn { margin-top: 1.5rem; }
+</style>

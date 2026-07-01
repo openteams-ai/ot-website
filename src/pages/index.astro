@@ -1,0 +1,313 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const problems = [
+  {
+    title: "You're paying to build someone else's asset.",
+    body: 'AI subscriptions capture your data by design. That’s the business model. Every query you send increases your dependence and makes their system more valuable.',
+  },
+  {
+    title: 'Off-the-shelf AI isn’t built for your problems.',
+    body: 'Subscriptions give you access, but they don’t guarantee outcomes. Fewer than 30% of CEOs report satisfaction with their generative AI returns. That’s not a coincidence.',
+  },
+  {
+    title: 'The model is fundamentally misaligned with compliance.',
+    body: 'Your data and regulatory requirements are exposed by default. More than 147 countries now enforce data sovereignty laws. Subscription AI wasn’t built to accommodate them.',
+  },
+  {
+    title: 'AI is an Expense, Not an Asset.',
+    body: 'You don’t own a subscription. While you pay, the system improves, but the asset accumulates to the vendor, not your organization.',
+  },
+];
+
+const stages = [
+  {
+    stage: 'Stage 01',
+    title: 'Your AI Owned Intelligence Hub',
+    body: 'Models, data, workflows, and institutional knowledge stay inside your environment, and start compounding in value from day one.',
+  },
+  {
+    stage: 'Stage 02',
+    title: 'Your Intelligence Hub Connects Outward',
+    body: 'Connect to partners, vendors, and data providers on your terms. You control what flows in and what flows out. Ownership never leaves you.',
+  },
+  {
+    stage: 'Stage 03',
+    title: 'The Distributed Applied AI Economy',
+    body: 'Networks of owned hubs form the fabric of a new economy, where AI capabilities are published, discovered, and consumed across organizations on open standards.',
+  },
+];
+
+const products = [
+  {
+    tag: '01 / Foundation',
+    title: 'The Nebari Ecosystem',
+    body: 'An open-source foundation for data science and AI infrastructure. Models, data, and workflows stay in your environment from day one.',
+    cta: 'Explore Nebari',
+    href: '/nebari/',
+  },
+  {
+    tag: '02 / Just Released · Free',
+    title: 'Collab Desktop App',
+    body: 'AI at your fingertips. A free desktop app that brings owned intelligence to your everyday work.',
+    cta: 'Explore OpenTeams Collab',
+    href: '/ai-ml-products/',
+  },
+  {
+    tag: '03 / Enterprise Deployment',
+    title: 'Intelligence Hub (Nexus)',
+    body: 'Your organization’s private AI environment. Every model, workflow, and data source is fully controlled by you. Your institutional knowledge stays yours and grows more valuable over time.',
+    cta: 'Explore OpenTeams Nexus',
+    href: '/ai-ml-products/',
+  },
+];
+
+const why = [
+  {
+    num: '01',
+    title: 'Built by the creators of modern AI’s foundations',
+    body: 'The people behind NumPy, SciPy, Anaconda, and Quansight — the open-source tools every major AI system runs on.',
+  },
+  {
+    num: '02',
+    title: 'Open source DNA, enterprise delivery',
+    body: 'We combine the transparency and durability of open source with the support and rigor enterprises require.',
+  },
+  {
+    num: '03',
+    title: 'The adoption hedge on the AI supercycle',
+    body: 'Own the layer where AI runs so your investment compounds instead of evaporating into someone else’s subscription.',
+  },
+  {
+    num: '04',
+    title: 'An army of forward-deployed engineers',
+    body: 'We build your system, train your team, and support you as long as needed — no lock-in required.',
+  },
+];
+
+const cases = [
+  {
+    tag: '01 Case',
+    label: 'BioTech',
+    body: 'OpenTeams built a transparent, explainable model for a biotech firm that fixed chaotic tooling and scattered ML workflows.',
+    href: '/case-studies/',
+  },
+  {
+    tag: '02 Case',
+    label: 'Investments Firm',
+    body: 'OpenTeams built an auditable system for an investment firm that they truly owned.',
+    href: '/case-studies/',
+  },
+  {
+    tag: '03 Case',
+    label: 'Government',
+    body: 'Nebari® is officially listed as a JATIC product as part of the next-gen toolchain supporting DoD AI development.',
+    href: '/case-studies/',
+  },
+  {
+    tag: '04 Case',
+    label: 'Energy',
+    body: 'A top energy team was lean by design. They weren’t trying to become a data company. OpenTeams built the exact solution they needed.',
+    href: '/case-studies/',
+  },
+];
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section class="section--dark hero">
+    <div class="container">
+      <p class="eyebrow">AI You Own</p>
+      <h1>Owned Intelligence.<br />Built for Enterprise.</h1>
+      <p class="lead">
+        The open infrastructure, tools, and expertise to build AI your
+        organization actually owns, not rents.
+      </p>
+      <div class="hero__cta">
+        <a href="/owned-intelligence-assessment/" class="btn btn--coral">Get Your Owned-Intelligence Score</a>
+        <a href="/ai-ml-products/" class="btn btn--ghost">Explore Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust bar -->
+  <section class="section--tight trust section--cloud">
+    <div class="container center">
+      <p class="muted trust__label">Trusted by the teams building the future of AI</p>
+      <div class="trust__logos" aria-hidden="true">
+        {['Biotech', 'Defense', 'Aerospace', 'Energy', 'Finance', 'Government'].map((n) => (
+          <span class="trust__logo">{n}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">The Problem</p>
+      <h2>Today’s AI Is Rented. The Value Isn’t Yours.</h2>
+      <div class="grid grid--2 problems">
+        {problems.map((p) => (
+          <div class="card">
+            <h3>{p.title}</h3>
+            <p class="muted">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The Opportunity -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">The Opportunity</p>
+      <h2>Building the Infrastructure for a Distributed AI Economy</h2>
+      <p class="lead">
+        We’re moving from an era of software seats to one of owned intelligence
+        hubs. The winners won’t just use AI. They’ll own the layer where it runs.
+      </p>
+      <div class="grid grid--3 stages">
+        {stages.map((s) => (
+          <div class="card">
+            <p class="card__num">{s.stage}</p>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works / Products -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">How It Works</p>
+      <h2>Yours to keep.</h2>
+      <p class="lead">
+        From an open-source foundation to the enterprise hub, and the modular
+        capabilities you customize it with, everything you need to build AI you
+        actually own.
+      </p>
+      <div class="grid grid--3 products">
+        {products.map((p) => (
+          <div class="card product-card">
+            <p class="card__num">{p.tag}</p>
+            <h3>{p.title}</h3>
+            <p class="muted">{p.body}</p>
+            <a href={p.href} class="product-card__link">{p.cta} &rarr;</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why OpenTeams -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Why OpenTeams&reg;</p>
+      <h2>Not another AI startup.</h2>
+      <div class="grid grid--2 why">
+        {why.map((w) => (
+          <div class="why__item">
+            <span class="why__num">{w.num}</span>
+            <div>
+              <h3>{w.title}</h3>
+              <p class="muted">{w.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <a href="/about-us/" class="btn btn--ghost">Learn more about us</a>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">Use Cases</p>
+      <h2>Owned AI, in production.</h2>
+      <div class="grid grid--2 cases">
+        {cases.map((c) => (
+          <a href={c.href} class="card case-card">
+            <p class="card__num">{c.tag}</p>
+            <h3>{c.label}</h3>
+            <p>{c.body}</p>
+            <span class="case-card__link">Read the Case Study &rarr;</span>
+          </a>
+        ))}
+      </div>
+      <div class="center" style="margin-top:2rem">
+        <a href="/case-studies/" class="btn btn--ghost">View all case studies</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>The AI You Keep Starts Here</h2>
+      <p class="lead" style="margin-inline:auto">
+        Every other implementation partner leaves you dependent. We build your
+        system, train your team, and support you as long as needed.
+      </p>
+      <a href="/contact-us/" class="btn btn--primary">Talk to Us</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding-block: clamp(4.5rem, 12vw, 9rem); }
+  .hero .lead { margin-bottom: 2rem; }
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+  .trust__label { margin-bottom: 1.5rem; font-size: 0.9rem; }
+  .trust__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(1.5rem, 5vw, 3.5rem);
+  }
+  .trust__logo {
+    font-family: var(--ot-font-display);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--ot-ink-400);
+    letter-spacing: 0.02em;
+  }
+
+  .problems, .stages, .products, .why { margin-top: 2.5rem; }
+
+  .product-card { display: flex; flex-direction: column; }
+  .product-card .muted { flex: 1; }
+  .product-card__link {
+    font-family: var(--ot-font-display);
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+
+  .why__item { display: flex; gap: 1.25rem; align-items: flex-start; }
+  .why__num {
+    font-family: var(--ot-font-mono);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--ot-coral-500);
+    line-height: 1;
+  }
+  .why + .btn, .why ~ .btn { margin-top: 2.5rem; }
+
+  .case-card { display: flex; flex-direction: column; color: inherit; }
+  .case-card:hover { border-color: var(--ot-coral-500); }
+  .case-card h3 { color: #fff; }
+  .case-card p { flex: 1; }
+  .case-card__link {
+    font-family: var(--ot-font-display);
+    font-weight: 600;
+    color: var(--ot-coral-500);
+    margin-top: 1rem;
+  }
+
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .final-cta .btn { margin-top: 1.5rem; }
+</style>

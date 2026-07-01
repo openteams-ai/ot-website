@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const posts = [
+  {
+    tag: '01',
+    title: 'PDF Table Extraction: Docling vs Marker vs LlamaParse Compared',
+    body: 'A hands-on benchmark of three document-parsing pipelines on real-world PDFs — accuracy, speed, and where each one breaks down.',
+  },
+  {
+    tag: '02',
+    title: 'Sandboxing Code Mode for Local LLM Agents',
+    body: 'How we let a local LLM agent run code safely, with isolation that keeps experiments contained without slowing the inner loop.',
+  },
+  {
+    tag: '03',
+    title: 'Plugin Playground AI Integration for Faster Plugin Prototyping',
+    body: 'Wiring AI into a plugin playground so developers can prototype, test, and iterate on integrations in a fraction of the time.',
+  },
+  {
+    tag: '04',
+    title: 'Slow Down — Simple Lessons for Guiding AI and Shipping Better Code',
+    body: 'The counterintuitive practices that make AI-assisted development faster in the long run: clearer intent, tighter feedback, better code.',
+  },
+  {
+    tag: '05',
+    title: 'We Benchmarked 6 Python Package Managers on a Real ML Project',
+    body: 'pip, Poetry, PDM, Conda, and more — measured on a real machine-learning project. Here’s what we found on speed and reproducibility.',
+  },
+  {
+    tag: '06',
+    title: 'What I Learned Making a Local LLM Do Real Work',
+    body: 'Notes from the trenches of running a local model on genuine tasks — the tuning, the trade-offs, and where local wins.',
+  },
+  {
+    tag: '07',
+    title: 'From Skill to Agent: When a Text File Isn’t Enough',
+    body: 'The line where a static skill file gives way to a full agent — and how to know when your automation needs to cross it.',
+  },
+];
+---
+
+<BaseLayout
+  title="Engineering Blog"
+  description="Hands-on engineering articles from the OpenTeams team on Python tooling, AI agents, LLMs, and open-source workflows used in real production."
+>
+  <PageHero
+    eyebrow="OpenTeams Engineering Blog"
+    title="Python, AI & Open Source"
+    lead="Hands-on engineering articles from the OpenTeams team on Python tooling, AI agents, LLMs, and open-source workflows used in real production."
+  />
+
+  <!-- Posts -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Latest Articles</p>
+      <h2>Built in production, shared in the open.</h2>
+      <div class="grid grid--3 posts">
+        {posts.map((p) => (
+          <a href="#" class="card post-card">
+            <p class="card__num">{p.tag}</p>
+            <h3>{p.title}</h3>
+            <p class="muted">{p.body}</p>
+            <span class="post-card__link">Read More &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>Building the Infrastructure for a Distributed AI Economy</h2>
+      <p class="lead" style="margin-inline:auto">
+        We build owned intelligence in the open. Want the team behind these
+        articles working on your stack?
+      </p>
+      <a href="/contact-us/" class="btn btn--primary">Talk to Us</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .posts { margin-top: 2.5rem; }
+
+  .post-card { display: flex; flex-direction: column; color: inherit; }
+  .post-card:hover { border-color: var(--ot-coral-500); }
+  .post-card .muted { flex: 1; }
+  .post-card__link {
+    font-family: var(--ot-font-display);
+    font-weight: 600;
+    color: var(--ot-coral-500);
+    margin-top: 1rem;
+  }
+
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .final-cta .btn { margin-top: 1.5rem; }
+</style>

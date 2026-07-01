@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const stack = [
+  {
+    title: 'PyTorch',
+    body: 'A flexible, open-source deep learning framework at the core of the custom logo-detection model — fully owned and endlessly customizable.',
+  },
+  {
+    title: 'Amazon Web Services (AWS)',
+    body: 'Elastic cloud infrastructure for training and inference, so scaling to thousands of hours of video is a matter of spinning up resources, not a cause for panic.',
+  },
+  {
+    title: 'PostgreSQL',
+    body: 'For the database, they stuck with the trusted open-source workhorse — robust, reliable storage without the licensing fees of proprietary alternatives.',
+  },
+];
+
+const casePoints = [
+  {
+    num: 'Challenge',
+    title: 'Locked into a black box',
+    body: 'Locked into an expensive, inflexible third-party SaaS vendor they didn’t own, couldn’t customize, and couldn’t scale.',
+  },
+  {
+    num: 'Solution',
+    title: 'A custom, in-house platform',
+    body: 'Built a custom platform blending strategic open-source tools (PyTorch, PostgreSQL) with cloud infrastructure on AWS.',
+  },
+  {
+    num: 'Results',
+    title: 'Total ownership & reduced cost',
+    body: 'The client now owns its model, data, and software stack — a cheaper, more customizable, and faster system.',
+  },
+];
+---
+
+<BaseLayout
+  title="AI-powered Logo Detection for Ad Analytics"
+  description="See how OpenTeams freed an ad analytics firm from black-box SaaS. We built a custom AI logo detection solution using PyTorch & AWS for total control & scale."
+>
+  <PageHero
+    eyebrow="Case Study · October 30, 2025"
+    title="AI-powered Logo Detection for Ad Analytics"
+    lead="How OpenTeams freed a leading ad analytics firm from a black-box trap."
+  />
+
+  <!-- The Problem -->
+  <section class="section">
+    <div class="container narrow">
+      <p class="eyebrow">The Problem</p>
+      <h2>Trapped in a system they didn’t own</h2>
+      <p>
+        The firm’s business — AI-powered logo detection, brand valuation, and
+        audience measurement — was taking off. More clients meant more to analyze,
+        more logos to detect, and more data to crunch. But their team discovered a
+        flaw: their system, a third-party SaaS solution, cost a fortune and did not
+        give them the control they wanted.
+      </p>
+      <p>
+        They were trapped — paying high fees for a “black box” system they didn’t
+        own, couldn’t customize, and couldn’t scale. They needed a way out. They
+        needed OpenTeams.
+      </p>
+    </div>
+  </section>
+
+  <!-- Building Model & Pipeline -->
+  <section class="section section--cloud">
+    <div class="container">
+      <p class="eyebrow">The Build</p>
+      <h2>Building the Model & Pipeline</h2>
+      <p class="lead">
+        The client needed its own model and its own data pipeline. The OpenTeams
+        crew dove in and laid out a new blueprint, strategically blending the best
+        of open source with the scalability of a public cloud.
+      </p>
+      <div class="grid grid--3 stack-grid">
+        {stack.map((s) => (
+          <div class="card">
+            <h3>{s.title}</h3>
+            <p class="muted">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Speed, Scale, Ownership -->
+  <section class="section section--dark">
+    <div class="container">
+      <p class="eyebrow">Speed, Scale, and Ownership</p>
+      <h2>The results speak for themselves</h2>
+      <div class="grid grid--3 case-grid">
+        {casePoints.map((c) => (
+          <div class="card">
+            <p class="card__num">{c.num}</p>
+            <h3>{c.title}</h3>
+            <p>{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- In control -->
+  <section class="section">
+    <div class="container narrow">
+      <p class="eyebrow">The Outcome</p>
+      <h2>Truly in control</h2>
+      <p>
+        The client is now truly in control of their architecture. They own their
+        own intellectual property. They can customize their models, add new brands
+        on the fly, and tweak the logic.
+      </p>
+      <p>
+        Best of all, they could scale. Onboarding a new client who needed to
+        analyze thousands of hours of video was no longer a cause for panic — it
+        was just a matter of spinning up more resources in the cloud.
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta">
+    <div class="container center">
+      <h2>Own the layer where your AI runs</h2>
+      <p class="lead" style="margin-inline:auto">
+        Every other implementation partner leaves you dependent. We build your
+        system, train your team, and support you as long as needed.
+      </p>
+      <div class="cta__row">
+        <a href="/contact-us/" class="btn btn--primary">Talk to Us</a>
+        <a href="/case-studies/" class="btn btn--ghost">View all case studies</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow { max-width: 74ch; }
+  .stack-grid, .case-grid { margin-top: 2.5rem; }
+
+  .final-cta { background: var(--ot-lavender-50); }
+  .final-cta h2 { margin-bottom: 1rem; }
+  .cta__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+</style>

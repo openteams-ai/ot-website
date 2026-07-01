@@ -1,41 +1,60 @@
 # OpenTeams Website
 
-A basic static site for OpenTeams. The current homepage displays a temporary
-maintenance message.
+The OpenTeams marketing site, built with [Astro](https://astro.build). Static
+output, hand-authored CSS, zero client framework.
+
+## Develop
+
+```bash
+npm install
+npm run dev        # http://localhost:4321
+```
+
+## Build
+
+```bash
+npm run build      # → dist/
+npm run preview    # serve the production build locally
+```
+
+## Deploy — Cloudflare Pages
+
+Deployed to **Cloudflare Pages** (already connected).
+
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+- **Node version:** 20+ (see `.nvmrc` / Pages env `NODE_VERSION`)
+
+`output: 'static'` in `astro.config.mjs`, so no adapter is required.
 
 ## Structure
 
 ```
-.
-├── index.html                          # Maintenance landing page
-├── styles.css                          # Styles (OpenTeams design tokens)
-├── assets/
-│   ├── openteams-horizontal.png        # Official logo (mark + wordmark)
-│   ├── openteams-white-horizontal.png  # White logo for dark backgrounds
-│   └── favicon.svg                     # Pinwheel mark favicon
-└── README.md
-```
-
-## Run locally
-
-It's pure static HTML/CSS — open `index.html` directly, or serve it:
-
-```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
+src/
+├── layouts/BaseLayout.astro     # <head>, header, footer, slot
+├── components/
+│   ├── Header.astro             # sticky nav + dropdowns (mobile menu)
+│   ├── Footer.astro             # columns, socials, newsletter, legal
+│   └── PageHero.astro           # reusable dark hero for interior pages
+├── pages/                       # one dir per route (directory URLs)
+│   ├── index.astro              # homepage
+│   ├── maintenance.astro        # standalone maintenance page (noindex)
+│   └── <slug>/index.astro       # interior pages
+└── styles/global.css            # design tokens + utility classes
+public/assets/                   # logos + favicon
 ```
 
 ## Branding
 
-Logos and colors come from the official OpenTeams design system
-([`openteams-ai/ai-security`](https://github.com/openteams-ai/ai-security),
-`styles/ot-foundations.css`).
+Palette & type from the OpenTeams design system (`ot-foundations.css`):
 
-- **Logos:** official assets from the `openteams-ai` GitHub org.
-- **Palette:** navy `#022791`, blue `#4D75FE`, coral `#FF8A69`, amber `#FAA944`.
-- **Type:** Inter Tight (display) + Inter (body), loaded from Google Fonts.
+- **Colors:** navy `#022791`, blue `#4D75FE`, coral `#FF8A69`, amber `#FAA944`.
+- **Type:** Inter Tight (display) + Inter (body) + JetBrains Mono (accents), via Google Fonts.
+- **Logos:** official assets in `public/assets/`.
 
-## Notes
+## Content provenance
 
-- No build step. Only external dependency is the Google Fonts import in
-  `styles.css`; remove it to make the page fully offline-capable.
+Homepage and interior content were reconstructed from the Wayback Machine
+snapshot of `openteams.com` (June 2026) while the live site was down. A few
+pages had no snapshot (`capabilities`, `python-security-remediation`,
+`owned-intelligence-assessment`) and were written to match the site's messaging.
