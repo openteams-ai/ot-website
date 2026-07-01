@@ -38,30 +38,6 @@ const stages = [
   },
 ];
 
-const products = [
-  {
-    tag: '01 / Foundation',
-    title: 'The Nebari Ecosystem',
-    body: 'An open-source foundation for data science and AI infrastructure. Models, data, and workflows stay in your environment from day one.',
-    cta: 'Explore Nebari',
-    href: '/nebari/',
-  },
-  {
-    tag: '02 / Just Released · Free',
-    title: 'Collab Desktop App',
-    body: 'AI at your fingertips. A free desktop app that brings owned intelligence to your everyday work.',
-    cta: 'Explore OpenTeams Collab',
-    href: '/ai-ml-products/',
-  },
-  {
-    tag: '03 / Enterprise Deployment',
-    title: 'Intelligence Hub (Nexus)',
-    body: 'Your organization’s private AI environment. Every model, workflow, and data source is fully controlled by you. Your institutional knowledge stays yours and grows more valuable over time.',
-    cta: 'Explore OpenTeams Nexus',
-    href: '/ai-ml-products/',
-  },
-];
-
 const why = [
   {
     num: '01',
@@ -137,7 +113,6 @@ const partners = [
       </p>
       <div class="hero__cta">
         <a href="/owned-intelligence-assessment/" class="btn btn--coral">Get Your Owned-Intelligence Score</a>
-        <a href="/ai-ml-products/" class="btn btn--ghost">Explore Products</a>
       </div>
     </div>
   </section>
@@ -193,29 +168,6 @@ const partners = [
             <p class="card__num">{s.stage}</p>
             <h3>{s.title}</h3>
             <p>{s.body}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works / Products -->
-  <section class="section section--cloud">
-    <div class="container">
-      <p class="eyebrow">How It Works</p>
-      <h2>Yours to keep.</h2>
-      <p class="lead">
-        From an open-source foundation to the enterprise hub, and the modular
-        capabilities you customize it with, everything you need to build AI you
-        actually own.
-      </p>
-      <div class="grid grid--3 products">
-        {products.map((p) => (
-          <div class="card product-card">
-            <p class="card__num">{p.tag}</p>
-            <h3>{p.title}</h3>
-            <p class="muted">{p.body}</p>
-            <a href={p.href} class="product-card__link">{p.cta} &rarr;</a>
           </div>
         ))}
       </div>
