@@ -103,8 +103,10 @@ const company = [
 
   .dropdown {
     position: absolute;
-    top: calc(100% + 0.4rem);
+    top: 100%;
     left: 0;
+    border-top: 0.4rem solid transparent;
+    background-clip: padding-box;
     min-width: 230px;
     background: #fff;
     border: 1px solid var(--ot-border);
@@ -127,7 +129,6 @@ const company = [
   .dropdown a:hover { background: var(--ot-lavender-50); color: var(--ot-navy-800); }
 
   .nav-item--has-menu:hover .dropdown,
-  .nav-item--has-menu:focus-within .dropdown,
   .dropdown.open {
     opacity: 1;
     visibility: visible;
@@ -197,15 +198,35 @@ const company = [
     toggle.setAttribute('aria-expanded', String(!!open));
   });
 
-  // Mobile: tap a menu label to expand its dropdown.
-  document.querySelectorAll('.nav-item--has-menu > .nav-link').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      if (window.matchMedia('(max-width: 900px)').matches) {
-        e.preventDefault();
-        const dd = btn.nextElementSibling;
-        const open = dd?.classList.toggle('open');
-        btn.setAttribute('aria-expanded', String(!!open));
-      }
+  // Click a menu label (or its arrow) to toggle its dropdown — works on all viewports.
+  const menuButtons = document.querySelectorAll('.nav-item--has-menu > .nav-link');
+
+  function closeAll(except) {
+    menuButtons.forEach((btn) => {
+      if (btn === except) return;
+      btn.nextElementSibling?.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
     });
+  }
+
+  menuButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dd = btn.nextElementSibling;
+      const willOpen = !dd?.classList.contains('open');
+      closeAll(btn);
+      dd?.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', String(willOpen));
+    });
+  });
+
+  // Close dropdowns on outside click or Escape.
+  document.addEventListener('click', (e) => {
+    if (!(e.target instanceof Element) || !e.target.closest('.nav-item--has-menu')) {
+      closeAll(null);
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAll(null);
   });
 </script>
