@@ -6,6 +6,7 @@ const featured = {
   title:
     'OpenTeams Announces CEO Transition, Marking Next Phase of Growth and Product Expansion',
   body: 'Travis Oliphant will assume the CEO role as the company builds on Joe Merrill’s leadership, transforming OpenTeams into a product-driven AI company centered on Nebari.',
+  href: '/press/openteams-announces-ceo-transition-marking-next-phase-of-growth-and-product-expansion/',
 };
 
 const releases = [
@@ -13,23 +14,31 @@ const releases = [
     title:
       'BMNT, OpenTeams Announce Strategic Partnership to Accelerate AI Adoption in Government',
     body: 'Partnership delivers working AI capability against validated government needs in days, not months.',
+    href: '/press/bmnt-openteams-announce-strategic-partnership-to-accelerate-ai-adoption-in-government/',
   },
   {
     title: 'OpenTeams Partners with CultRepo to release Python: The Documentary',
     body: 'The film highlights the experts behind the world’s most influential programming language and showcases OpenTeams Founder and NumPy creator Travis Oliphant.',
+    href: '/press/openteams-partners-with-cultrepo-to-release-python-the-documentary/',
   },
   {
     title: 'OpenTeams Announces CMMC 2.0 Compliance',
     body: 'AUSTIN, Texas — OpenTeams, the leader in AI models that organizations can fully own and control, announced its compliance with Cybersecurity Maturity Model Certification Level 2 (CMMC 2.0).',
+    href: 'https://www.businesswire.com/news/home/20250721862523/en/OpenTeams-Announces-CMMC-2.0-Compliance',
+    external: true,
   },
   {
     title:
       'OpenTeams Appoints Lt. Gen (Ret) Ross Coffman to Board of Directors',
     body: 'Strategic addition furthers OpenTeams’ commitment to promoting transparent and sovereign AI in the government and defense sectors.',
+    href: 'https://www.businesswire.com/news/home/20250609395295/en/OpenTeams-Appoints-Lt.-Gen-Ret-Ross-Coffman-to-Board-of-Directors',
+    external: true,
   },
   {
     title: 'OpenTeams & Quansight Partner to Advance Ethical Open Source AI',
     body: 'OpenTeams and Quansight partner to scale ethical, open-source AI — integrating AI teams and tech to accelerate secure, transparent AI for government and enterprise.',
+    href: 'https://www.businesswire.com/news/home/20250313525435/en/OpenTeams-and-Quansight-Announce-Partnership-to-Allow-Enterprise-and-Government-to-Own-their-AI',
+    external: true,
   },
 ];
 ---
@@ -52,7 +61,7 @@ const releases = [
         <p class="card__num">Featured</p>
         <h2 class="featured__title">{featured.title}</h2>
         <p class="muted">{featured.body}</p>
-        <a href="/press/" class="featured__link">Read More &raquo;</a>
+        <a href={featured.href} class="featured__link">Read More &raquo;</a>
       </div>
     </div>
   </section>
@@ -67,7 +76,13 @@ const releases = [
           <article class="card release-card">
             <h3>{r.title}</h3>
             <p class="muted">{r.body}</p>
-            <a href="/press/" class="release-card__link">Read More &raquo;</a>
+            <a
+              href={r.href}
+              class="release-card__link"
+              {...(r.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              Read More &raquo;{r.external && <span class="release-card__ext"> (Business Wire)</span>}
+            </a>
           </article>
         ))}
       </div>
@@ -85,7 +100,7 @@ const releases = [
       </p>
       <div class="stack media">
         <p>Press inquiries: <a href="mailto:connect@openteams.com">connect@openteams.com</a></p>
-        <p>OpenTeams logos: <a href="/press/">Download Zip File</a></p>
+        <p>OpenTeams logos: <a href="mailto:connect@openteams.com?subject=Logo%20request">Request brand assets</a></p>
       </div>
     </div>
   </section>
@@ -120,6 +135,11 @@ const releases = [
     margin-top: 1rem;
     font-family: var(--ot-font-display);
     font-weight: 600;
+  }
+  .release-card__ext {
+    font-weight: 500;
+    font-size: 0.85em;
+    color: var(--ot-ink-500);
   }
 
   .media { margin-top: 1.5rem; }
