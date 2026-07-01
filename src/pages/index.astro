@@ -111,6 +111,19 @@ const cases = [
     href: '/case-studies/',
   },
 ];
+
+const partners = [
+  'Biotech',
+  'Defense',
+  'Aerospace',
+  'Energy',
+  'Financial Services',
+  'Government',
+  'Investment Management',
+  'Advertising',
+  'Manufacturing',
+  'Healthcare',
+];
 ---
 
 <BaseLayout>
@@ -132,11 +145,11 @@ const cases = [
 
   <!-- Trust bar -->
   <section class="section--tight trust section--cloud">
-    <div class="container center">
-      <p class="muted trust__label">Trusted by the teams building the future of AI</p>
-      <div class="trust__logos" aria-hidden="true">
-        {['Biotech', 'Defense', 'Aerospace', 'Energy', 'Finance', 'Government'].map((n) => (
-          <span class="trust__logo">{n}</span>
+    <p class="muted trust__label center">Trusted by the teams building the future of AI</p>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        {[...partners, ...partners].map((n) => (
+          <span class="marquee__item">{n}</span>
         ))}
       </div>
     </div>
@@ -261,19 +274,34 @@ const cases = [
   .hero .lead { margin-bottom: 2rem; }
   .hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; }
 
-  .trust__label { margin-bottom: 1.5rem; font-size: 0.9rem; }
-  .trust__logos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: clamp(1.5rem, 5vw, 3.5rem);
+  .trust__label {
+    margin: 0 auto 1.75rem;
+    padding-inline: var(--ot-gutter);
+    font-size: 0.9rem;
   }
-  .trust__logo {
+  .marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+  .marquee__track {
+    display: flex;
+    width: max-content;
+    animation: ot-marquee 34s linear infinite;
+  }
+  .marquee:hover .marquee__track { animation-play-state: paused; }
+  .marquee__item {
     font-family: var(--ot-font-display);
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--ot-ink-400);
     letter-spacing: 0.02em;
+    white-space: nowrap;
+    margin-right: clamp(2.5rem, 6vw, 4.5rem);
+  }
+  @keyframes ot-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
   .problems, .stages, .products, .why { margin-top: 2.5rem; }
