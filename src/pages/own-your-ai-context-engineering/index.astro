@@ -1,0 +1,54 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost
+  title="Own the Intelligence. Rent the Model."
+  description="The advantage in AI isn’t the model, it’s the context underneath it. Why context engineering and owned context beat rented AI. By Travis Oliphant."
+  date="2026-07-01"
+  author="Travis Oliphant"
+  deck="More people are realizing the learning loop is where AI advantage compounds. Fewer are asking who owns the context underneath it."
+>
+  <blockquote>“In my view, our priority has to be building a frontier ecosystem, not just a frontier model… One where every organization can own the learning loop that encodes its institutional knowledge, compounding its human and token capital.”<br />— Satya Nadella, CEO, Microsoft, in “A frontier without an ecosystem is not stable.”</blockquote>
+
+  <p>I built NumPy because scientists needed a foundation they could own. Not license. Not rent from a company that could change the terms next quarter. Own. Two decades later it runs under much of modern computing, and it taught me something I have never stopped believing: if you rent the layer everything else depends on, you do not control your future.</p>
+  <p>I think about that every time I read what enterprise leaders are saying about AI right now.</p>
+
+  <h2>The model isn’t the advantage. The learning loop is.</h2>
+  <p>The conversation has finally reached something useful. The smartest people in the field, including Satya Nadella, now argue that the durable advantage in AI is not the model you use. It is the learning loop you build on top of it: the place where your people’s judgment and your machine’s capability compound into something only your company has.</p>
+  <p>Nadella calls that loop the new IP of the firm. He is right. It is worth noting that this is coming from the company that will happily still sell you one of the largest rented-AI stacks on earth.</p>
+
+  <h2>A learning loop runs on context, not models.</h2>
+  <p>But there is a piece most people are skipping. A learning loop does not run on models. It runs on context. And companies are leaking their context to the models and to the AI companies they are depending on. This is the leak in your boat that must be closed.</p>
+
+  <h2>Your context is the real asset, and right now it’s scattered.</h2>
+  <p>Think about what makes AI useful inside your company. It is not your demo. It is your terminology. Your brand’s unique voice and tone. The way your best people make decisions that no one ever wrote down. That accumulated context is what turns a generic model into one that works the way you work. It is, quite literally, the asset.</p>
+  <p>Right now, it is either unseen and discoordinated or it is leaking to your AI provider. It lives in wikis nobody reads, in Slack threads that scroll into infinity, in the heads of your senior people, and increasingly in the conversation logs of whatever AI vendor you rent. You re-explain your company at the start of every session. The context that creates the value never stays with the company that produced it. You are paying to generate your own institutional knowledge and leaving it on someone else’s server.</p>
+  <p>Here is the line I will continue to drive: the organizational context that fuels the ROI of AI should stay with the organization that produced it.</p>
+
+  <h2>What is context engineering?</h2>
+  <p>There is a name for the discipline of fixing this. The industry spent two years on “model engineering” tuning individual requests to a model. The real work is one level up. It is the extension of prompt engineering to context engineering: building the durable, governed context your AI works from, so it reasons from the same anchor your people do. Context engineering at organizational scale, with governance, is the skill that actually compounds. It is the category that matters now.</p>
+
+  <h2>What is a Frame?</h2>
+  <p>So we did the obvious thing that is not yet standardized. We made an accountable slice of shareable context an artifact that you own. We call it a Frame.</p>
+  <p>A Frame is a portable, versioned file or folder comprising a specific slice of your organization’s context: its rules, terminology, voice, goals, skills, tools, and norms. A marketing team publishes a Brand Voice Frame, and every piece of AI-assisted writing inherits it. A legal team maintains a Compliance Frame that applies automatically wherever it is needed. Frames are scoped, they inherit from one another the way your org chart does, and they can be shared, internally with a colleague or selectively with a partner you want working in your vocabulary.</p>
+  <p>To be clear, a Frame is not a clever prompt. A prompt is something you type into a tool you do not own. A Frame is an artifact your organization owns, governs, versions, and keeps.</p>
+  <p>This is the piece the rest of the conversation is missing. Nadella says a company should be able to “switch out a generalist model without losing the company-veteran expertise built into their learning system.” That is exactly right. But that expertise has to live somewhere that is not the model. A Frame is where it lives. Decoupled from any one model, your context becomes portable. That is not a slogan, it is the mechanism.</p>
+
+  <h2>Owned context needs infrastructure you own: The Intelligence Hub.</h2>
+  <p>The context you own needs somewhere to run that you also own.</p>
+  <p>At OpenTeams, we call this internal system that integrates your applications and your data into a center of excellence for intelligence integration, an Intelligence Hub. This is your AI deployed inside your own perimeter, where your organizational memory and application integration accumulates on your own infrastructure instead of a vendor’s.</p>
+  <p>It is built on open source, which is not a detail, but the entire trust argument.</p>
+
+  <h2>Intelligence you rent can be revoked.</h2>
+  <p>I have watched open standards win before. They win because open means inspectable, inspectable means trustworthy, and trustworthy means you can build a company on it knowing it will not be taken away.</p>
+  <p>Rented, closed intelligence cannot make that promise. This month made that abstract risk concrete when the US Government abruptly pulled Anthropic’s model Fable from users for reasons that had nothing to do with the customers relying on it.</p>
+  <p>By all accounts they handled a hard situation responsibly. And that is the point. The risk is not a bad vendor, it’s structural. Intelligence you rent can be revoked. Intelligence you own and run inside your own walls cannot be switched off from outside.</p>
+  <p>Put those together and you get the thing everyone actually wants. The model becomes a replaceable part. You can swap it, upgrade it, or run a different one for a different job, and your Frames, your context, and your accumulated intelligence stay exactly where they are, with you. Models predict tokens; frames make those predictions yours.</p>
+
+  <h2>What’s next</h2>
+  <p>Everything else we are building sits on top of that one idea: the AI workers that run inside a Frame’s context, the supervised workflows that put them to work, and the marketplace where organizations share all of it. That is a longer story, and I will tell it in a follow-up.</p>
+  <p>Another exciting project launching soon at OpenTeams is a free desktop app with Frames built in so you can create one, layer a few together, and watch your AI start to think and sound like your organization instead of like everyone else’s. That is the moment this stops being theoretical.</p>
+  <p>Stay tuned for details on the Intelligence Hubs and Desktop App launching soon.</p>
+  <p>A generation ago, the people who bet on open, ownable foundations looked patient while everyone else optimized for convenience. They do not look patient now. They look like they understood something structural.</p>
+  <p>So rent the model. Rent three of them, and swap them whenever you want. Just make sure you own the thing that makes them yours.</p>
+</BlogPost>
